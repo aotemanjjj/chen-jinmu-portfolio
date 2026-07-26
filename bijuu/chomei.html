@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-beast="chomei" class="light" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>重明 · 七尾</title>
+    <style id="theme-vars">
+/* ============================================================
+   BIJUU ANIMATED POSTERS — Brand CSS
+   Weathered collectible-card aesthetic, military/classified document tone.
+   One neutral parchment base + per-beast accent hue applied via
+   data-beast attributes on the page root.
+   ============================================================ */
+
+:root {
+  /* ---- Brand primary (parchment / aged document) ---- */
+  --bj-primary-50:  #fbfaf6;
+  --bj-primary-100: #f4f1e8;
+  --bj-primary-200: #e8e2d0;
+  --bj-primary-300: #d6cdb2;
+  --bj-primary-400: #b8ad8a;
+  --bj-primary-500: #9a8c63;
+  --bj-primary-600: #7d6f4a;
+  --bj-primary-700: #5f5436;
+  --bj-primary-800: #3d3621;
+  --bj-primary-900: #221f13;
+
+  /* ---- Neutral (ink / concrete) ---- */
+  --bj-neutral-0:   #ffffff;
+  --bj-neutral-50:  #f6f5f2;
+  --bj-neutral-100: #eceae4;
+  --bj-neutral-200: #d4d1c8;
+  --bj-neutral-300: #b0aca0;
+  --bj-neutral-400: #847f70;
+  --bj-neutral-500: #5e5a4e;
+  --bj-neutral-600: #44413a;
+  --bj-neutral-700: #2f2d28;
+  --bj-neutral-800: #1d1c19;
+  --bj-neutral-900: #100f0e;
+
+  /* ---- State tokens ---- */
+  --state-success: #4a7a4a;
+  --state-warning: #b8862a;
+  --state-error:   #a83232;
+  --state-info:    #3a6a8a;
+
+  /* ---- Radius ---- */
+  --bj-radius-sm:   2px;
+  --bj-radius-md:   8px;
+  --bj-radius-lg:   12px;
+  --bj-radius-full: 9999px;
+
+  /* ---- Typography ---- */
+  --font-display: "Oswald", "Bebas Neue", "Impact", "Noto Sans SC", sans-serif;
+  --font-body: "Inter", "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+}
+
+/* ============================================================
+   Semantic aliases (required by apply-html-head-contract.mjs)
+   ============================================================ */
+:root {
+  --bj-background: var(--bj-neutral-50);
+  --bj-foreground: var(--bj-neutral-900);
+  --bj-card: var(--bj-primary-50);
+  --bj-card-foreground: var(--bj-neutral-900);
+  --bj-popover: var(--bj-neutral-0);
+  --bj-popover-foreground: var(--bj-neutral-900);
+  --bj-primary: var(--bj-primary-700);
+  --bj-primary-foreground: var(--bj-primary-50);
+  --bj-muted: var(--bj-neutral-200);
+  --bj-muted-foreground: var(--bj-neutral-500);
+  --bj-border: var(--bj-neutral-300);
+  --bj-input: var(--bj-neutral-300);
+  --bj-ring: var(--bj-primary-500);
+
+  /* ---- Per-beast accent (default = neutral ink) ---- */
+  --bj-accent: var(--bj-neutral-700);
+  --bj-accent-soft: var(--bj-neutral-400);
+  --bj-accent-glow: rgba(94, 90, 78, 0.35);
+}
+
+/* ============================================================
+   Per-beast accent hues — applied via [data-beast="..."]
+   Each beast gets: accent, soft tint, glow color, particle color
+   ============================================================ */
+[data-beast="shukaku"] {
+  --bj-accent: #c98a3a;       /* sand gold */
+  --bj-accent-soft: #e0b878;
+  --bj-accent-glow: rgba(201, 138, 58, 0.45);
+  --bj-particle: #d9a85a;
+}
+[data-beast="matatabi"] {
+  --bj-accent: #2e6fb5;       /* spectral blue */
+  --bj-accent-soft: #6aa3d8;
+  --bj-accent-glow: rgba(46, 111, 181, 0.5);
+  --bj-particle: #5aa0e8;
+}
+[data-beast="isobu"] {
+  --bj-accent: #3f7a5e;       /* mist green */
+  --bj-accent-soft: #7aaa90;
+  --bj-accent-glow: rgba(63, 122, 94, 0.45);
+  --bj-particle: #6aa080;
+}
+[data-beast="kokuo"] {
+  --bj-accent: #5b8fc4;       /* boil water blue */
+  --bj-accent-soft: #9bc0e0;
+  --bj-accent-glow: rgba(91, 143, 196, 0.45);
+  --bj-particle: #8ab8e0;
+}
+[data-beast="saiken"] {
+  --bj-accent: #3fb0a8;       /* acid teal */
+  --bj-accent-soft: #7fd4cd;
+  --bj-accent-glow: rgba(63, 176, 168, 0.5);
+  --bj-particle: #5fd4c8;
+}
+[data-beast="chomei"] {
+  --bj-accent: #4ea64e;       /* beetle emerald */
+  --bj-accent-soft: #8acc84;
+  --bj-accent-glow: rgba(78, 166, 78, 0.45);
+  --bj-particle: #7ac870;
+}
+[data-beast="gyuki"] {
+  --bj-accent: #7a3fb0;       /* ink violet */
+  --bj-accent-soft: #b07fd4;
+  --bj-accent-glow: rgba(122, 63, 176, 0.5);
+  --bj-particle: #a070d8;
+}
+[data-beast="kurama"] {
+  --bj-accent: #d24a2a;       /* fox crimson */
+  --bj-accent-soft: #e88a6a;
+  --bj-accent-glow: rgba(210, 74, 42, 0.5);
+  --bj-particle: #e86a4a;
+}
+
+/* ============================================================
+   Dark mode aliases
+   ============================================================ */
+.dark {
+  --bj-background: var(--bj-neutral-900);
+  --bj-foreground: var(--bj-neutral-100);
+  --bj-card: var(--bj-neutral-800);
+  --bj-card-foreground: var(--bj-neutral-100);
+  --bj-popover: var(--bj-neutral-800);
+  --bj-popover-foreground: var(--bj-neutral-100);
+  --bj-primary: var(--bj-primary-400);
+  --bj-primary-foreground: var(--bj-neutral-900);
+  --bj-muted: var(--bj-neutral-700);
+  --bj-muted-foreground: var(--bj-neutral-400);
+  --bj-border: var(--bj-neutral-700);
+  --bj-input: var(--bj-neutral-600);
+  --bj-ring: var(--bj-primary-300);
+}
+
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style type="text/tailwindcss">
+  @theme inline {
+    --color-background: var(--bj-background);
+    --color-foreground: var(--bj-foreground);
+    --color-card: var(--bj-card);
+    --color-card-foreground: var(--bj-card-foreground);
+    --color-popover: var(--bj-popover);
+    --color-popover-foreground: var(--bj-popover-foreground);
+    --color-primary: var(--bj-primary);
+    --color-primary-foreground: var(--bj-primary-foreground);
+    --color-muted: var(--bj-muted);
+    --color-muted-foreground: var(--bj-muted-foreground);
+    --color-accent: var(--bj-accent);
+    --color-border: var(--bj-border);
+    --color-input: var(--bj-input);
+    --color-ring: var(--bj-ring);
+    --radius-sm: var(--bj-radius-sm);
+    --radius-md: var(--bj-radius-md);
+    --radius-lg: var(--bj-radius-lg);
+  }
+  @layer base {
+    body { background: var(--bj-background); color: var(--bj-foreground); }
+    td, th { @apply break-words; word-break: break-all; word-break: auto-phrase; }
+    th { @apply whitespace-nowrap; }
+  }
+    </style>
+    <style id="semantic-token-fallback">
+      .bg-background { background-color: var(--bj-background); }
+      .text-background { color: var(--bj-background); }
+      .border-background { border-color: var(--bj-background); }
+      .ring-background { --tw-ring-color: var(--bj-background); }
+      .bg-foreground { background-color: var(--bj-foreground); }
+      .text-foreground { color: var(--bj-foreground); }
+      .border-foreground { border-color: var(--bj-foreground); }
+      .ring-foreground { --tw-ring-color: var(--bj-foreground); }
+      .bg-card { background-color: var(--bj-card); }
+      .text-card { color: var(--bj-card); }
+      .border-card { border-color: var(--bj-card); }
+      .ring-card { --tw-ring-color: var(--bj-card); }
+      .bg-card-foreground { background-color: var(--bj-card-foreground); }
+      .text-card-foreground { color: var(--bj-card-foreground); }
+      .border-card-foreground { border-color: var(--bj-card-foreground); }
+      .ring-card-foreground { --tw-ring-color: var(--bj-card-foreground); }
+      .bg-popover { background-color: var(--bj-popover); }
+      .text-popover { color: var(--bj-popover); }
+      .border-popover { border-color: var(--bj-popover); }
+      .ring-popover { --tw-ring-color: var(--bj-popover); }
+      .bg-popover-foreground { background-color: var(--bj-popover-foreground); }
+      .text-popover-foreground { color: var(--bj-popover-foreground); }
+      .border-popover-foreground { border-color: var(--bj-popover-foreground); }
+      .ring-popover-foreground { --tw-ring-color: var(--bj-popover-foreground); }
+      .bg-primary { background-color: var(--bj-primary); }
+      .text-primary { color: var(--bj-primary); }
+      .border-primary { border-color: var(--bj-primary); }
+      .ring-primary { --tw-ring-color: var(--bj-primary); }
+      .bg-primary-foreground { background-color: var(--bj-primary-foreground); }
+      .text-primary-foreground { color: var(--bj-primary-foreground); }
+      .border-primary-foreground { border-color: var(--bj-primary-foreground); }
+      .ring-primary-foreground { --tw-ring-color: var(--bj-primary-foreground); }
+      .bg-muted { background-color: var(--bj-muted); }
+      .text-muted { color: var(--bj-muted); }
+      .border-muted { border-color: var(--bj-muted); }
+      .ring-muted { --tw-ring-color: var(--bj-muted); }
+      .bg-muted-foreground { background-color: var(--bj-muted-foreground); }
+      .text-muted-foreground { color: var(--bj-muted-foreground); }
+      .border-muted-foreground { border-color: var(--bj-muted-foreground); }
+      .ring-muted-foreground { --tw-ring-color: var(--bj-muted-foreground); }
+      .bg-accent { background-color: var(--bj-accent); }
+      .text-accent { color: var(--bj-accent); }
+      .border-accent { border-color: var(--bj-accent); }
+      .ring-accent { --tw-ring-color: var(--bj-accent); }
+      .bg-border { background-color: var(--bj-border); }
+      .text-border { color: var(--bj-border); }
+      .border-border { border-color: var(--bj-border); }
+      .ring-border { --tw-ring-color: var(--bj-border); }
+      .bg-input { background-color: var(--bj-input); }
+      .text-input { color: var(--bj-input); }
+      .border-input { border-color: var(--bj-input); }
+      .ring-input { --tw-ring-color: var(--bj-input); }
+      .bg-ring { background-color: var(--bj-ring); }
+      .text-ring { color: var(--bj-ring); }
+      .border-ring { border-color: var(--bj-ring); }
+      .ring-ring { --tw-ring-color: var(--bj-ring); }
+    </style>
+    <style>
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+      [data-icon] {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        -webkit-mask-size: contain;
+        mask-size: contain;
+        -webkit-mask-repeat: no-repeat;
+        mask-repeat: no-repeat;
+        -webkit-mask-position: center;
+        mask-position: center;
+        background-color: currentColor;
+      }
+    </style>
+</head>
+<body class="min-h-screen font-sans antialiased">
+    <!-- =================== CRITICAL STATIC LAYOUT =================== -->
+    <style id="critical-layout">
+      body {
+        margin: 0;
+        background: var(--bj-primary-100);
+        color: var(--bj-neutral-900);
+        font-family: var(--font-body);
+        overflow-x: hidden;
+      }
+      .poster {
+        position: relative;
+        max-width: 1400px;
+        margin: 0 auto;
+        background:
+          radial-gradient(circle at 30% 20%, var(--bj-primary-50) 0%, var(--bj-primary-100) 55%, var(--bj-primary-200) 100%);
+        padding: 28px 34px 30px;
+        box-sizing: border-box;
+        overflow: hidden;
+        box-shadow: 0 0 0 1px var(--bj-primary-300), 0 30px 70px -20px rgba(20,18,10,0.55);
+      }
+      /* inner dashed document frame */
+      .doc-frame {
+        position: absolute; inset: 14px;
+        border: 1px solid var(--bj-primary-400);
+        border-style: dashed;
+        pointer-events: none; z-index: 6;
+      }
+      .doc-frame::before, .doc-frame::after {
+        content: ""; position: absolute; left: 50%; transform: translateX(-50%);
+        width: 120px; height: 14px; background: var(--bj-primary-100);
+      }
+      .doc-frame::before { top: -8px; }
+      .doc-frame::after { bottom: -8px; }
+
+      .topbar {
+        display: flex; justify-content: space-between; align-items: flex-start;
+        gap: 18px; position: relative; z-index: 5; margin-bottom: 6px;
+      }
+      .corner-id {
+        font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.18em;
+        color: var(--bj-neutral-600); text-transform: uppercase;
+      }
+      .corner-id b { color: var(--bj-accent); font-weight: 700; }
+
+      .stage {
+        position: relative; z-index: 4;
+        margin: 8px auto 0; width: 100%; height: clamp(420px, 52vw, 640px);
+        display: flex; align-items: center; justify-content: center;
+      }
+      .hero-wrap {
+        position: relative; width: 100%; height: 100%; overflow: hidden;
+        border: 1px solid var(--bj-primary-400);
+        background: var(--bj-primary-50);
+      }
+      .hero-wrap img.hero {
+        width: 100%; height: 100%; object-fit: cover; display: block;
+        filter: contrast(1.04) saturate(1.05) sepia(0.06);
+        transform: scale(1.08);
+        will-change: transform, filter;
+      }
+      .hero-wrap::after {
+        content: ""; position: absolute; inset: 0; pointer-events: none;
+        background:
+          linear-gradient(180deg, rgba(34,31,19,0.10) 0%, rgba(34,31,19,0) 24%, rgba(34,31,19,0) 70%, rgba(34,31,19,0.42) 100%),
+          radial-gradient(circle at 50% 42%, rgba(78,166,78,0.0) 30%, rgba(34,31,19,0.18) 100%);
+      }
+      /* cracked-rock vignette around hero */
+      .crack-overlay {
+        position: absolute; inset: 0; pointer-events: none; z-index: 3;
+        background:
+          radial-gradient(ellipse at 50% 50%, transparent 38%, rgba(60,52,28,0.28) 78%, rgba(30,26,14,0.5) 100%);
+        mix-blend-mode: multiply;
+      }
+
+      /* ============ TITLE ============ */
+      .title-block {
+        position: relative; z-index: 5; text-align: center; margin-top: -34px;
+      }
+      .title-en {
+        font-family: var(--font-display);
+        font-weight: 700;
+        font-size: clamp(54px, 11vw, 150px);
+        line-height: 0.82; letter-spacing: 0.04em;
+        color: var(--bj-neutral-900);
+        position: relative; display: inline-block;
+        text-shadow: 0 4px 0 var(--bj-primary-300), 0 8px 22px rgba(20,18,10,0.4);
+        background: linear-gradient(180deg, var(--bj-neutral-900) 0%, var(--bj-neutral-800) 55%, var(--bj-primary-700) 100%);
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      }
+      .title-en .glitch-fill { -webkit-text-fill-color: initial; }
+      .title-sub {
+        font-family: var(--font-display); font-weight: 500;
+        font-size: clamp(13px, 1.5vw, 17px); letter-spacing: 0.42em;
+        color: var(--bj-accent); text-transform: uppercase; margin-top: 8px;
+      }
+      .claw {
+        position: absolute; top: 50%; height: 2px; width: 38%;
+        opacity: 0.9; transform: translateY(-50%) rotate(-3deg);
+      }
+      .claw.l {
+        left: -8%;
+        background: linear-gradient(90deg, transparent, var(--bj-accent) 28%, #e88a2a 72%, transparent);
+      }
+      .claw.r {
+        right: -8%; transform: translateY(-50%) rotate(3deg);
+        background: linear-gradient(90deg, transparent, #e88a2a 28%, var(--bj-accent) 72%, transparent);
+      }
+
+      /* ============ GRID ============ */
+      .grid {
+        position: relative; z-index: 5;
+        display: grid; grid-template-columns: 1.05fr 0.9fr 1.05fr;
+        gap: 18px; margin-top: 22px; align-items: stretch;
+      }
+      .panel {
+        position: relative; background: rgba(251,250,246,0.86);
+        border: 1px solid var(--bj-primary-400); padding: 16px 16px 14px;
+        box-shadow: inset 0 0 0 2px var(--bj-primary-50);
+      }
+      .panel .p-head {
+        font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.3em;
+        color: var(--bj-neutral-500); text-transform: uppercase; margin-bottom: 10px;
+        display: flex; align-items: center; gap: 8px;
+      }
+      .panel .p-head .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--bj-accent); }
+
+      .info-list { list-style: none; margin: 0; padding: 0; }
+      .info-list li {
+        display: flex; justify-content: space-between; align-items: baseline; gap: 10px;
+        padding: 7px 0; border-bottom: 1px dotted var(--bj-primary-300);
+        font-family: var(--font-body); font-size: 13px; color: var(--bj-neutral-800);
+      }
+      .info-list li:last-child { border-bottom: none; }
+      .info-list .k {
+        font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
+        color: var(--bj-neutral-500); text-transform: uppercase; flex-shrink: 0;
+      }
+      .info-list .v { font-weight: 600; text-align: right; color: var(--bj-neutral-900); }
+      .info-list .v.accent { color: var(--bj-accent); }
+
+      /* seal */
+      .seal {
+        width: 116px; height: 116px; position: relative; margin: 4px auto 8px;
+      }
+      .seal .ring {
+        position: absolute; inset: 0; border-radius: 50%;
+        border: 2px solid var(--bj-primary-700);
+      }
+      .seal .ring.mid { inset: 10px; border-style: double; border-width: 3px; }
+      .seal .ring.core { inset: 22px; border: 1px solid var(--bj-primary-600); background: var(--bj-primary-100); }
+      .seal .kanji {
+        position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+        font-family: var(--font-display); font-size: 40px; font-weight: 700; color: var(--bj-primary-800);
+      }
+      .seal .tick {
+        position: absolute; top: 50%; left: 50%; width: 2px; height: 6px;
+        background: var(--bj-primary-700); transform-origin: 50% 54px;
+      }
+
+      /* vertical jp */
+      .jp-vertical {
+        writing-mode: vertical-rl; text-orientation: upright;
+        font-family: var(--font-display); font-weight: 700;
+        font-size: clamp(18px, 2.2vw, 28px); letter-spacing: 0.1em;
+        color: var(--bj-neutral-900); line-height: 1.1;
+      }
+      .jp-vertical small {
+        font-family: var(--font-body); font-weight: 600; font-size: 11px;
+        letter-spacing: 0.4em; color: var(--bj-accent); display: block; margin-top: 8px;
+      }
+
+      /* warning */
+      .warning {
+        display: flex; align-items: center; gap: 12px;
+        font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em;
+        color: var(--state-error); text-transform: uppercase;
+      }
+      .hazard {
+        width: 26px; height: 26px; position: relative; flex-shrink: 0;
+        background:
+          conic-gradient(from 0deg, #f5c518 0deg 45deg, #1a1a1a 45deg 90deg, #f5c518 90deg 135deg, #1a1a1a 135deg 180deg,
+                         #f5c518 180deg 225deg, #1a1a1a 225deg 270deg, #f5c518 270deg 315deg, #1a1a1a 315deg 360deg);
+        clip-path: polygon(50% 0, 100% 100%, 0 100%);
+      }
+      .hazard::after {
+        content: "!"; position: absolute; left: 50%; top: 62%; transform: translate(-50%,-50%);
+        color: #1a1a1a; font-family: var(--font-display); font-weight: 800; font-size: 14px;
+      }
+
+      /* threat stars */
+      .threat { text-align: center; }
+      .stars { font-size: 20px; letter-spacing: 0.18em; color: var(--state-error); line-height: 1; }
+      .stars .off { color: var(--bj-primary-400); }
+      .cert {
+        font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em;
+        color: var(--bj-neutral-600); text-transform: uppercase; margin-top: 6px;
+      }
+
+      /* barcode */
+      .barcode { display: flex; align-items: flex-end; gap: 1.5px; height: 46px; }
+      .barcode i { display: block; width: 2px; background: var(--bj-neutral-900); }
+      .bc-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--bj-neutral-600); margin-top: 6px; text-transform: uppercase; }
+
+      /* bottom rail */
+      .bottom-rail {
+        position: relative; z-index: 5;
+        display: grid; grid-template-columns: 1fr 1fr 1fr;
+        gap: 18px; margin-top: 20px; align-items: center;
+        border-top: 1px solid var(--bj-primary-400); padding-top: 16px;
+      }
+
+      /* grain + scanline overlays */
+      .grain {
+        position: absolute; inset: 0; pointer-events: none; z-index: 8; opacity: 0.5;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+        mix-blend-mode: multiply;
+      }
+      .scanlines {
+        position: absolute; inset: 0; pointer-events: none; z-index: 9; opacity: 0.14;
+        background: repeating-linear-gradient(0deg, rgba(20,18,10,0.5) 0 1px, transparent 1px 3px);
+      }
+      .vignette {
+        position: absolute; inset: 0; pointer-events: none; z-index: 7;
+        background: radial-gradient(ellipse at center, transparent 55%, rgba(30,26,14,0.35) 100%);
+      }
+
+      /* responsive */
+      @media (max-width: 860px) {
+        .poster { padding: 18px 16px 20px; }
+        .stage { height: 56vw; min-height: 320px; }
+        .grid { grid-template-columns: 1fr; }
+        .bottom-rail { grid-template-columns: 1fr; gap: 14px; text-align: center; }
+        .warning, .threat, .barcode { justify-self: center; }
+        .title-block { margin-top: -18px; }
+      }
+    </style>
+
+    <!-- =================== ANIMATIONS — CHOMEI · FLIGHT / INSECT =================== -->
+    <style>
+      /* hero entrance — flies in with wing-flutter, then settles into high-frequency vibration */
+      @keyframes heroFlyIn {
+        0%   { transform: translate(70px, -50px) scale(1.32) rotate(-4deg); opacity: 0; filter: contrast(1.3) saturate(0.4) sepia(0.1) blur(7px); }
+        50%  { opacity: 0.82; }
+        100% { transform: translate(0,0) scale(1.08) rotate(0); opacity: 1; filter: contrast(1.04) saturate(1.05) sepia(0.06); }
+      }
+      /* continuous wing-flutter vibration (subtle high-frequency shake) */
+      @keyframes wingFlutter {
+        0%,100% { transform: scale(1.08) translateX(0) rotate(0deg); }
+        20%     { transform: scale(1.083) translateX(-1.3px) rotate(-0.28deg); }
+        40%     { transform: scale(1.077) translateX(1.1px) rotate(0.26deg); }
+        60%     { transform: scale(1.082) translateX(-0.9px) rotate(-0.16deg); }
+        80%     { transform: scale(1.079) translateX(0.7px) rotate(0.12deg); }
+      }
+      .hero-wrap img.hero {
+        animation: heroFlyIn 1.5s cubic-bezier(.18,.8,.28,1) both,
+                   wingFlutter 0.22s 1.5s ease-in-out infinite;
+      }
+
+      @keyframes titleRise {
+        0% { opacity: 0; transform: translateY(26px) scale(0.96); }
+        100% { opacity: 1; transform: translateY(0) scale(1); }
+      }
+      .title-block { animation: titleRise 1s 0.6s cubic-bezier(.2,.8,.3,1) both; }
+
+      /* ---- (1) insect-wing scales / spores drifting in air, slow floating with rotation ---- */
+      .scale-layer { position: absolute; inset: 0; pointer-events: none; z-index: 4; overflow: hidden; }
+      .scale {
+        position: absolute; bottom: -6%;
+        width: var(--s, 9px); height: var(--s, 9px);
+        background: linear-gradient(135deg, var(--bj-particle) 0%, var(--bj-accent-soft) 60%, var(--bj-accent) 100%);
+        border-radius: 50% 12% 50% 12%;
+        box-shadow: 0 0 5px var(--bj-accent-glow);
+        opacity: 0.75;
+        animation: scaleDrift var(--d, 13s) var(--delay, 0s) linear infinite;
+        will-change: transform, opacity;
+      }
+      @keyframes scaleDrift {
+        0%   { transform: translate(0, 0) rotate(0deg) scale(0.5); opacity: 0; }
+        10%  { opacity: 0.8; }
+        50%  { transform: translate(var(--dx, 40px), -170px) rotate(220deg) scale(1); opacity: 0.65; }
+        90%  { opacity: 0.3; }
+        100% { transform: translate(var(--dx2, -30px), -360px) rotate(440deg) scale(0.6); opacity: 0; }
+      }
+
+      /* ---- (2) iridescent shimmer sweep across the hero image (rainbow gradient sliding) ---- */
+      @keyframes iridSweep {
+        0%   { transform: translateX(-140%) skewX(-14deg); }
+        100% { transform: translateX(240%) skewX(-14deg); }
+      }
+      .iridescent {
+        position: absolute; top: 0; left: 0; width: 55%; height: 100%;
+        pointer-events: none; z-index: 4; mix-blend-mode: screen;
+        background: linear-gradient(100deg,
+          transparent 0%,
+          rgba(255,180,220,0.16) 22%,
+          rgba(190,255,200,0.24) 34%,
+          rgba(180,225,255,0.22) 46%,
+          rgba(220,190,255,0.20) 58%,
+          rgba(255,235,180,0.18) 72%,
+          transparent 100%);
+        animation: iridSweep 5.5s ease-in-out infinite;
+        will-change: transform;
+      }
+      .iridescent.b { animation-duration: 7.5s; animation-delay: 1.8s; opacity: 0.7; width: 45%; }
+
+      /* ---- (4) compound-eye glow pulse (yellow-green) ---- */
+      @keyframes eyeGlow {
+        0%,100% { opacity: 0.4; transform: translateX(-50%) scale(1); box-shadow: 0 0 22px 5px rgba(190,225,80,0.28); }
+        50%     { opacity: 0.9; transform: translateX(-50%) scale(1.1); box-shadow: 0 0 44px 12px rgba(210,245,95,0.5); }
+      }
+      .eye-glow {
+        position: absolute; top: 22%; left: 50%; transform: translateX(-50%);
+        width: 24%; height: 11%; border-radius: 50%;
+        background: radial-gradient(ellipse at 50% 50%, rgba(210,245,95,0.55) 0%, rgba(170,215,75,0.28) 48%, transparent 75%);
+        filter: blur(3px); pointer-events: none; z-index: 4;
+        animation: eyeGlow 3s ease-in-out infinite;
+      }
+
+      /* ---- (5) floating dust / pollen particles that catch light (twinkling) ---- */
+      .pollen-layer { position: absolute; inset: 0; pointer-events: none; z-index: 5; overflow: hidden; }
+      .pollen {
+        position: absolute;
+        width: 3px; height: 3px; border-radius: 50%;
+        background: rgba(255,247,205,0.95);
+        box-shadow: 0 0 5px rgba(255,240,180,0.85), 0 0 9px rgba(200,240,110,0.4);
+        animation: pollenTwinkle var(--d, 4.5s) var(--delay, 0s) ease-in-out infinite;
+        will-change: transform, opacity;
+      }
+      @keyframes pollenTwinkle {
+        0%,100% { opacity: 0; transform: translate(0,0) scale(0.5); }
+        15%     { opacity: 1; transform: translate(var(--dx, 16px), -18px) scale(1.25); }
+        45%     { opacity: 0.35; transform: translate(calc(var(--dx,16px) * 1.8), -55px) scale(0.9); }
+        70%     { opacity: 0.9; transform: translate(calc(var(--dx,16px) * 1.3), -90px) scale(1.15); }
+        100%    { opacity: 0; transform: translate(var(--dx2, -12px), -130px) scale(0.55); }
+      }
+
+      /* ---- (6) wind gust effect — particles occasionally accelerate in bursts ---- */
+      @keyframes windGust {
+        0%, 86%, 100% { transform: translateX(-40%) skewX(-8deg); opacity: 0; }
+        88%           { opacity: 0.45; }
+        94%           { transform: translateX(160%) skewX(-8deg); opacity: 0.22; }
+        97%           { opacity: 0; }
+      }
+      .gust {
+        position: absolute; top: 0; left: 0; width: 45%; height: 100%;
+        background: linear-gradient(90deg, transparent 0%, rgba(122,200,112,0.14) 45%, rgba(200,240,110,0.10) 60%, transparent 100%);
+        pointer-events: none; z-index: 4; mix-blend-mode: screen;
+        animation: windGust 9s ease-in-out infinite;
+        will-change: transform, opacity;
+      }
+      .gust.b { animation-delay: 4.2s; top: 30%; height: 60%; opacity: 0.7; }
+      .gust.c { animation-delay: 6.8s; top: 12%; height: 40%; }
+
+      /* iridescent wing-haze clouds billowing around hero edges */
+      .haze {
+        position: absolute; width: 220px; height: 220px; border-radius: 50%;
+        background: radial-gradient(circle at 50% 50%,
+          rgba(190,255,200,0.32) 0%, rgba(122,200,112,0.16) 48%, rgba(122,200,112,0) 72%);
+        filter: blur(9px);
+        animation: hazePulse var(--d, 7s) var(--delay,0s) ease-in-out infinite;
+        will-change: transform, opacity;
+      }
+      @keyframes hazePulse {
+        0%,100% { transform: scale(0.85) translate(0,0); opacity: 0.4; }
+        50%     { transform: scale(1.2) translate(var(--hx, 12px), -16px); opacity: 0.75; }
+      }
+
+      /* iridescent shimmer sweep on hero surface (thin sheen) */
+      .shimmer {
+        position: absolute; inset: 0; pointer-events: none; z-index: 4;
+        background:
+          repeating-linear-gradient(115deg,
+            transparent 0px, transparent 11px,
+            rgba(190,255,200,0.10) 11px, rgba(190,255,200,0.10) 13px);
+        mix-blend-mode: screen;
+        animation: shimmerSlide 6s linear infinite;
+      }
+      @keyframes shimmerSlide {
+        0%   { transform: translateX(-12%) translateY(0); }
+        100% { transform: translateX(12%) translateY(-6%); }
+      }
+
+      /* seal — wing-flutter vibration + slow rotate + drifting spore */
+      @keyframes sealRotate { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+      .seal .tickwrap { position: absolute; inset: 0; animation: sealRotate 42s linear infinite; }
+      @keyframes sealFlutter {
+        0%,100% { transform: translateX(0) rotate(0); }
+        50%     { transform: translateX(-0.6px) rotate(-0.4deg); }
+      }
+      .seal { animation: sealFlutter 0.3s ease-in-out infinite; }
+      @keyframes sealSpore {
+        0%,100% { opacity: 0; transform: translate(-50%, 0) scale(0.7); }
+        50%     { opacity: 0.6; transform: translate(-50%, -12px) scale(1.15); }
+      }
+      .seal .spore {
+        position: absolute; top: -8px; left: 50%; transform: translateX(-50%);
+        width: 28px; height: 28px; border-radius: 50%;
+        background: radial-gradient(circle, rgba(122,200,112,0.55), transparent 70%);
+        filter: blur(3px); animation: sealSpore 3.5s ease-in-out infinite;
+      }
+
+      /* hazard pulse */
+      @keyframes hazardPulse {
+        0%,100% { filter: drop-shadow(0 0 0 rgba(168,50,50,0)); transform: scale(1); }
+        50%     { filter: drop-shadow(0 0 6px rgba(168,50,50,0.7)); transform: scale(1.12); }
+      }
+      .hazard { animation: hazardPulse 1.6s ease-in-out infinite; }
+
+      /* warning text pulse */
+      @keyframes warnPulse {
+        0%,100% { opacity: 0.75; }
+        50%     { opacity: 1; }
+      }
+      .warning { animation: warnPulse 1.9s ease-in-out infinite; }
+
+      /* stars flicker */
+      @keyframes starFlick {
+        0%,100% { opacity: 1; }
+        50%     { opacity: 0.55; }
+      }
+      .stars .on { animation: starFlick 2.4s ease-in-out infinite; }
+      .stars .on:nth-child(2) { animation-delay: 0.3s; }
+      .stars .on:nth-child(3) { animation-delay: 0.6s; }
+      .stars .on:nth-child(4) { animation-delay: 0.9s; }
+      .stars .on:nth-child(5) { animation-delay: 1.2s; }
+      .stars .on:nth-child(6) { animation-delay: 1.5s; }
+      .stars .on:nth-child(7) { animation-delay: 1.8s; }
+
+      /* title iridescent rainbow shimmer wipe */
+      @keyframes iridTitle {
+        0%   { background-position: 0% center; }
+        100% { background-position: 200% center; }
+      }
+      .title-en .irid {
+        position: absolute; inset: 0;
+        background: linear-gradient(100deg,
+          transparent 28%,
+          rgba(255,180,220,0.55) 40%,
+          rgba(190,255,200,0.65) 47%,
+          rgba(180,225,255,0.55) 54%,
+          rgba(220,190,255,0.5) 61%,
+          rgba(255,235,180,0.5) 68%,
+          transparent 80%);
+        background-size: 200% 100%;
+        -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+        animation: iridTitle 5s linear infinite;
+        mix-blend-mode: screen;
+      }
+
+      /* claw slash draw-in */
+      @keyframes clawSlash {
+        0%   { opacity: 0; transform: translateY(-50%) rotate(-3deg) scaleX(0); }
+        40%  { opacity: 0.9; transform: translateY(-50%) rotate(-3deg) scaleX(1); }
+        100% { opacity: 0.9; transform: translateY(-50%) rotate(-3deg) scaleX(1); }
+      }
+      .claw.l { animation: clawSlash 0.6s 1.1s cubic-bezier(.2,.8,.3,1) both; transform-origin: right; }
+      .claw.r { animation: clawSlash 0.6s 1.2s cubic-bezier(.2,.8,.3,1) both; transform-origin: left; }
+
+      @media (prefers-reduced-motion: reduce) {
+        *, *::before, *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+        }
+        .hero-wrap img.hero { transform: scale(1.08) !important; }
+      }
+    </style>
+
+    <main>
+      <div class="poster">
+        <div class="doc-frame"></div>
+
+        <!-- ===== TOP BAR ===== -->
+        <div class="topbar">
+          <div class="corner-id">FILE No. <b>BJ-07 / CHOMEI</b> &nbsp;·&nbsp; 滝隠れ・第七尾獣</div>
+          <div class="corner-id">CLASSIFIED // 尾獣動態アーカイブ &nbsp;·&nbsp; PAGE <b>06 / 08</b></div>
+        </div>
+
+        <!-- ===== STAGE ===== -->
+        <div class="stage">
+          <div class="hero-wrap">
+            <img class="hero" src="assets/image_6_7k82xz.jpg" alt="重明 · 七尾 — 粉砕された岩を突き破る甲殻の甲虫">
+            <!-- iridescent wing-haze clouds billowing around edges -->
+            <div class="haze" style="left:-60px; top:-40px; --d:7s;"></div>
+            <div class="haze" style="right:-70px; top:8%; --d:8.5s; --delay:1s; --hx:-14px;"></div>
+            <div class="haze" style="left:18%; bottom:-80px; --d:9s; --delay:0.5s; width:260px; height:260px;"></div>
+            <div class="haze" style="right:16%; bottom:-70px; --d:7.5s; --delay:1.6s; --hx:16px;"></div>
+            <!-- compound-eye glow -->
+            <div class="eye-glow"></div>
+            <!-- iridescent shimmer sweeps -->
+            <div class="iridescent"></div>
+            <div class="iridescent b"></div>
+            <!-- thin surface sheen -->
+            <div class="shimmer"></div>
+            <!-- wind gusts -->
+            <div class="gust"></div>
+            <div class="gust b"></div>
+            <div class="gust c"></div>
+            <!-- crack vignette -->
+            <div class="crack-overlay"></div>
+            <!-- insect-wing scales drifting -->
+            <div class="scale-layer" id="scaleLayer"></div>
+            <!-- twinkling dust / pollen -->
+            <div class="pollen-layer" id="pollenLayer"></div>
+          </div>
+        </div>
+
+        <!-- ===== TITLE ===== -->
+        <div class="title-block">
+          <div class="title-en">
+            CHOMEI
+            <span class="irid">CHOMEI</span>
+            <span class="claw l"></span>
+            <span class="claw r"></span>
+          </div>
+          <div class="title-sub">七尾の重明 &nbsp;·&nbsp; Seven-Tails &nbsp;·&nbsp; Flight 飛翔</div>
+        </div>
+
+        <!-- ===== INFO GRID ===== -->
+        <div class="grid">
+          <!-- left info panel -->
+          <div class="panel">
+            <div class="p-head"><span class="dot"></span> SUBJECT DOSSIER · 対象記録</div>
+            <ul class="info-list">
+              <li><span class="k">Designation</span><span class="v">Seven-Tailed Beetle Beast</span></li>
+              <li><span class="k">七尾</span><span class="v accent">重明 · CHOMEI</span></li>
+              <li><span class="k">Village</span><span class="v">Takigakure / Hidden Waterfall</span></li>
+              <li><span class="k">滝隠れ</span><span class="v">滝里</span></li>
+              <li><span class="k">Nature</span><span class="v accent">Flight 飛翔</span></li>
+              <li><span class="k">Tails</span><span class="v">SEVEN (7)</span></li>
+              <li><span class="k">Power</span><span class="v">飛翔鳞粉 / Wing-Scale Powder</span></li>
+              <li><span class="k">Jinchūriki</span><span class="v">Fū フウ</span></li>
+            </ul>
+          </div>
+
+          <!-- center seal -->
+          <div class="panel" style="text-align:center;">
+            <div class="p-head" style="justify-content:center;"><span class="dot"></span> VILLAGE SEAL · 里印</div>
+            <div class="seal">
+              <div class="ring"></div>
+              <div class="ring mid"></div>
+              <div class="ring core"></div>
+              <div class="tickwrap" id="tickwrap"></div>
+              <div class="kanji">滝</div>
+              <div class="spore"></div>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.24em; color:var(--bj-neutral-600); text-transform:uppercase;">
+              TAKIGAKURE · WATERFALL SEAL
+            </div>
+            <div style="font-family:var(--font-mono); font-size:9px; letter-spacing:0.2em; color:var(--bj-neutral-500); margin-top:4px;">
+              AUTH. № TW-07-CHO
+            </div>
+          </div>
+
+          <!-- right vertical jp -->
+          <div class="panel" style="display:flex; flex-direction:column; align-items:flex-end; justify-content:space-between;">
+            <div class="p-head" style="width:100%;"><span class="dot"></span> 尾獣 · BIJU</div>
+            <div class="jp-vertical">
+              七尾の重明
+              <small>BIJU No.07</small>
+            </div>
+            <div style="font-family:var(--font-mono); font-size:10px; letter-spacing:0.22em; color:var(--bj-neutral-600); text-transform:uppercase; align-self:flex-start;">
+              飛翔 MASTER · AERIAL ARTS
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== BOTTOM RAIL ===== -->
+        <div class="bottom-rail">
+          <!-- warning -->
+          <div class="warning">
+            <div class="hazard"></div>
+            <div>
+              FLIGHT HAZARD — AERIAL THREAT<br>
+              飛翔鳞粉危険区域 · DO NOT APPROACH
+            </div>
+          </div>
+
+          <!-- certification + threat -->
+          <div class="threat">
+            <div class="stars" aria-label="Threat level 7 of 7">
+              <span class="on">★</span><span class="on">★</span><span class="on">★</span><span class="on">★</span><span class="on">★</span><span class="on">★</span><span class="on">★</span>
+            </div>
+            <div class="cert">THREAT CLASS: S-RANK · 認証 № BJ-07</div>
+          </div>
+
+          <!-- barcode -->
+          <div style="justify-self:end;">
+            <div class="barcode" id="barcode"></div>
+            <div class="bc-meta">BJ-07-CHOMEI · TAKIGAKURE</div>
+          </div>
+        </div>
+
+        <!-- overlays -->
+        <div class="vignette"></div>
+        <div class="grain"></div>
+        <div class="scanlines"></div>
+      </div>
+    </main>
+
+    <script>
+      // ---- particle generators (small, CSS-driven) ----
+      const rand = (a, b) => Math.random() * (b - a) + a;
+
+      // ---- (1) insect-wing scales / spores drifting with rotation ----
+      (function () {
+        const layer = document.getElementById('scaleLayer');
+        if (!layer) return;
+        const COUNT = 26;
+        for (let i = 0; i < COUNT; i++) {
+          const s = document.createElement('span');
+          s.className = 'scale';
+          const size = rand(5, 13);
+          s.style.setProperty('--s', size + 'px');
+          s.style.left = rand(0, 100) + '%';
+          s.style.setProperty('--d', rand(10, 18) + 's');
+          s.style.setProperty('--delay', rand(0, 12) + 's');
+          s.style.setProperty('--dx', rand(-60, 60) + 'px');
+          s.style.setProperty('--dx2', rand(-50, 50) + 'px');
+          layer.appendChild(s);
+        }
+      })();
+
+      // ---- (5) floating dust / pollen twinkling ----
+      (function () {
+        const layer = document.getElementById('pollenLayer');
+        if (!layer) return;
+        const COUNT = 34;
+        for (let i = 0; i < COUNT; i++) {
+          const p = document.createElement('span');
+          p.className = 'pollen';
+          p.style.top = rand(20, 95) + '%';
+          p.style.left = rand(0, 100) + '%';
+          p.style.setProperty('--d', rand(3.5, 7) + 's');
+          p.style.setProperty('--delay', rand(0, 5) + 's');
+          p.style.setProperty('--dx', rand(-30, 30) + 'px');
+          p.style.setProperty('--dx2', rand(-20, 20) + 'px');
+          layer.appendChild(p);
+        }
+      })();
+
+      // ---- (6) wind gust — occasionally spawn a fast-drifting scale burst ----
+      (function () {
+        const layer = document.getElementById('scaleLayer');
+        if (!layer) return;
+        function gustBurst() {
+          const n = 6 + Math.floor(rand(0, 5));
+          for (let i = 0; i < n; i++) {
+            const s = document.createElement('span');
+            s.className = 'scale';
+            const size = rand(4, 9);
+            s.style.setProperty('--s', size + 'px');
+            s.style.left = rand(-10, 30) + '%';
+            s.style.bottom = rand(10, 70) + '%';
+            s.style.setProperty('--d', rand(2.8, 4.2) + 's');
+            s.style.setProperty('--delay', '0s');
+            // gust = fast horizontal acceleration
+            s.style.setProperty('--dx', rand(260, 420) + 'px');
+            s.style.setProperty('--dx2', rand(420, 620) + 'px');
+            s.style.animation = 'scaleDrift ' + s.style.getPropertyValue('--d') + ' linear forwards';
+            layer.appendChild(s);
+            setTimeout(() => s.remove(), 4500);
+          }
+        }
+        setInterval(gustBurst, 9000);
+        setTimeout(gustBurst, 4000);
+      })();
+
+      // seal tick marks
+      (function () {
+        const wrap = document.getElementById('tickwrap');
+        if (!wrap) return;
+        const TICKS = 12;
+        for (let i = 0; i < TICKS; i++) {
+          const t = document.createElement('span');
+          t.className = 'tick';
+          t.style.transform = 'translate(-50%,-100%) rotate(' + (i * (360 / TICKS)) + 'deg)';
+          wrap.appendChild(t);
+        }
+      })();
+
+      // barcode bars
+      (function () {
+        const bc = document.getElementById('barcode');
+        if (!bc) return;
+        const BARS = 48;
+        let html = '';
+        for (let i = 0; i < BARS; i++) {
+          const w = Math.random() > 0.5 ? rand(1, 3) : rand(2, 5);
+          const h = rand(60, 100);
+          html += '<i style="width:' + w.toFixed(1) + 'px;height:' + h.toFixed(0) + '%"></i>';
+        }
+        bc.innerHTML = html;
+      })();
+
+      if (window.lucide) { lucide.createIcons(); }
+    </script>
+
+<!-- Gallery navigation (non-invasive) -->
+<style>
+.gallery-back {
+  position: fixed; top: 16px; left: 16px; z-index: 9999;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono, monospace);
+  font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
+  color: #221f13; background: rgba(251, 250, 246, 0.92);
+  border: 2px solid #3d3621; padding: 7px 13px;
+  box-shadow: 3px 3px 0 #221f13, 0 4px 14px rgba(0,0,0,0.3);
+  text-decoration: none; backdrop-filter: blur(4px);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  opacity: 0; animation: gb-in 0.6s ease-out 1.2s forwards;
+}
+.gallery-back:hover { transform: translate(-1px,-1px); box-shadow: 4px 4px 0 #221f13, 0 6px 18px rgba(0,0,0,0.4); }
+.gallery-back:active { transform: translate(2px,2px); box-shadow: 1px 1px 0 #221f13; }
+.gallery-back svg { width: 12px; height: 12px; }
+@keyframes gb-in { from { opacity: 0; transform: translateX(-12px); } to { opacity: 1; transform: translateX(0); } }
+@media (max-width: 600px) { .gallery-back { top: 10px; left: 10px; font-size: 10px; padding: 6px 10px; } }
+</style>
+<a href="index.html" class="gallery-back" aria-label="返回尾兽档案">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="M12 19l-7-7 7-7"/></svg>
+  <span>档案</span>
+</a>
+</body>
+</html>
