@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="zh-CN" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>尾兽档案 · BIJUU ANIMATED POSTERS</title>
+    <meta name="description" content="火影忍者九只尾兽动态海报系列 · 复古军事档案风格">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4.3.1/dist/index.global.js"></script>
+    <script src="https://unpkg.com/lucide@1.8.0/dist/umd/lucide.min.js"></script>
+    <style>
+        /* ============ Brand tokens (mirrored from portfolio) ============ */
+        :root {
+            --bj-primary-50:  #fbfaf6;
+            --bj-primary-100: #f4f1e8;
+            --bj-primary-200: #e8e2d0;
+            --bj-primary-300: #d6cdb2;
+            --bj-primary-400: #b8ad8a;
+            --bj-primary-500: #9a8c63;
+            --bj-primary-600: #7d6f4a;
+            --bj-primary-700: #5f5436;
+            --bj-primary-800: #3d3621;
+            --bj-primary-900: #221f13;
+            --bj-neutral-50:  #f6f5f2;
+            --bj-neutral-100: #eceae4;
+            --bj-neutral-300: #b0aca0;
+            --bj-neutral-500: #5e5a4e;
+            --bj-neutral-700: #2f2d28;
+            --bj-neutral-800: #1d1c19;
+            --bj-neutral-900: #100f0e;
+            --state-error:   #a83232;
+            --font-display: "Oswald", "Bebas Neue", "Impact", "Noto Sans SC", sans-serif;
+            --font-body: "Inter", "Noto Sans SC", system-ui, sans-serif;
+            --font-mono: "JetBrains Mono", "Courier New", monospace;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            background:
+                radial-gradient(120% 90% at 50% 0%, var(--bj-primary-100) 0%, var(--bj-primary-200) 45%, var(--bj-primary-300) 100%);
+            color: var(--bj-neutral-900);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        a { color: inherit; text-decoration: none; }
+
+        /* ============ Parchment / scanline overlays ============ */
+        .bg-noise {
+            position: fixed; inset: 0; pointer-events: none; z-index: 1;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(122, 111, 74, 0.10) 0, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(95, 84, 54, 0.10) 0, transparent 45%),
+                repeating-linear-gradient(45deg, rgba(122, 111, 74, 0.035) 0 2px, transparent 2px 5px);
+            mix-blend-mode: multiply;
+        }
+        .bg-scanlines {
+            position: fixed; inset: 0; pointer-events: none; z-index: 2;
+            background: repeating-linear-gradient(0deg, rgba(34,31,19,0.05) 0, rgba(34,31,19,0.05) 1px, transparent 1px, transparent 3px);
+            mix-blend-mode: multiply;
+        }
+
+        /* ============ Top classified strip ============ */
+        .classified-strip {
+            position: relative; z-index: 10;
+            background: var(--bj-primary-900);
+            color: var(--bj-primary-100);
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.4em;
+            text-align: center;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--bj-primary-700);
+        }
+
+        /* ============ Header ============ */
+        .gallery-header {
+            position: relative; z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 24px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .header-left { display: flex; flex-direction: column; gap: 8px; }
+        .header-tag {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 0.3em;
+            color: var(--bj-primary-700);
+            text-transform: uppercase;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .header-tag::before {
+            content: ""; display: inline-block;
+            width: 10px; height: 10px;
+            background: var(--state-error);
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px rgba(168,50,50,0.2);
+        }
+        .header-title {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(40px, 7vw, 88px);
+            line-height: 0.9;
+            letter-spacing: 0.03em;
+            color: var(--bj-primary-900);
+            text-transform: uppercase;
+        }
+        .header-sub {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(14px, 1.6vw, 20px);
+            letter-spacing: 0.25em;
+            color: var(--bj-primary-700);
+            margin-top: 4px;
+        }
+        .header-right { display: flex; align-items: center; gap: 14px; }
+        .back-btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--bj-primary-900);
+            background: var(--bj-primary-50);
+            border: 2px solid var(--bj-primary-800);
+            padding: 10px 18px;
+            box-shadow: 3px 3px 0 var(--bj-primary-900);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .back-btn:hover { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--bj-primary-900); }
+        .back-btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--bj-primary-900); }
+
+        .header-divider {
+            position: relative; z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .header-divider hr {
+            border: none;
+            border-top: 2px dashed var(--bj-primary-700);
+            opacity: 0.5;
+        }
+
+        /* ============ Gallery grid ============ */
+        .gallery-grid {
+            position: relative; z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 36px 24px 80px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        /* ============ Beast card ============ */
+        .beast-card {
+            position: relative;
+            background: linear-gradient(180deg, var(--bj-primary-50) 0%, var(--bj-primary-100) 70%, var(--bj-primary-200) 100%);
+            border: 3px solid var(--bj-primary-800);
+            box-shadow:
+                0 14px 30px rgba(34, 31, 19, 0.35),
+                inset 0 0 0 2px var(--bj-primary-300);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.35s cubic-bezier(0.2, 0.85, 0.25, 1), box-shadow 0.35s ease;
+            will-change: transform;
+        }
+        .beast-card::before {
+            content: "";
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(122, 111, 74, 0.10) 0, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(95, 84, 54, 0.10) 0, transparent 45%),
+                repeating-linear-gradient(45deg, rgba(122, 111, 74, 0.035) 0 2px, transparent 2px 5px);
+            mix-blend-mode: multiply;
+            pointer-events: none;
+            z-index: 5;
+        }
+        .beast-card:hover {
+            transform: translateY(-6px) rotate(-0.3deg);
+            box-shadow:
+                0 22px 50px rgba(34, 31, 19, 0.55),
+                inset 0 0 0 2px var(--beast-accent, var(--bj-primary-300));
+        }
+        .beast-card:hover .card-img-wrap img {
+            transform: scale(1.06);
+        }
+        .beast-card:hover .card-title-band {
+            text-shadow: 0 0 18px var(--beast-glow, transparent);
+        }
+
+        .card-corner {
+            position: absolute; width: 18px; height: 18px; z-index: 8;
+            border-color: var(--bj-primary-900);
+        }
+        .card-corner.tl { top: 6px; left: 6px; border-top: 2px solid; border-left: 2px solid; }
+        .card-corner.tr { top: 6px; right: 6px; border-top: 2px solid; border-right: 2px solid; }
+        .card-corner.bl { bottom: 6px; left: 6px; border-bottom: 2px solid; border-left: 2px solid; }
+        .card-corner.br { bottom: 6px; right: 6px; border-bottom: 2px solid; border-right: 2px solid; }
+
+        .card-num-strip {
+            position: relative; z-index: 7;
+            background: var(--bj-primary-900);
+            color: var(--beast-accent-soft, var(--bj-primary-100));
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.3em;
+            text-align: center;
+            padding: 4px 0;
+            text-transform: uppercase;
+        }
+
+        .card-img-wrap {
+            position: relative;
+            aspect-ratio: 3 / 4;
+            overflow: hidden;
+            background: var(--bj-primary-300);
+        }
+        .card-img-wrap img {
+            width: 100%; height: 100%;
+            object-fit: cover; object-position: center;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.2, 0.85, 0.25, 1);
+            filter: contrast(1.05) saturate(1.05);
+        }
+        .card-img-wrap::after {
+            content: "";
+            position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(34, 31, 19, 0.55) 100%);
+            pointer-events: none;
+        }
+
+        .card-title-band {
+            position: absolute;
+            left: 0; right: 0;
+            bottom: 14%;
+            z-index: 6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            pointer-events: none;
+            transition: text-shadow 0.4s ease;
+        }
+        .card-title {
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: clamp(22px, 3.2vw, 34px);
+            line-height: 0.9;
+            letter-spacing: 0.04em;
+            color: var(--bj-primary-50);
+            text-transform: uppercase;
+            -webkit-text-stroke: 1px var(--bj-primary-900);
+            text-shadow: 2px 2px 0 var(--bj-primary-900);
+        }
+        .card-cn {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(12px, 1.4vw, 16px);
+            letter-spacing: 0.3em;
+            color: var(--beast-accent-soft, var(--bj-primary-100));
+            margin-top: 4px;
+            text-shadow: 1px 1px 0 var(--bj-primary-900);
+        }
+
+        .card-foot {
+            position: relative; z-index: 7;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 14px;
+            background: var(--bj-primary-100);
+            border-top: 2px solid var(--bj-primary-800);
+        }
+        .card-meta {
+            display: flex; flex-direction: column; gap: 2px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.15em;
+            color: var(--bj-primary-700);
+            text-transform: uppercase;
+        }
+        .card-meta b { color: var(--bj-primary-900); font-weight: 700; }
+        .card-enter {
+            display: inline-flex; align-items: center; gap: 4px;
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--bj-primary-50);
+            background: var(--beast-accent, var(--bj-primary-800));
+            padding: 6px 10px;
+            border: 1px solid var(--bj-primary-900);
+            box-shadow: 2px 2px 0 var(--bj-primary-900);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .beast-card:hover .card-enter {
+            transform: translate(-1px, -1px);
+            box-shadow: 3px 3px 0 var(--bj-primary-900);
+        }
+
+        /* Tail-count badge */
+        .tail-badge {
+            position: absolute;
+            top: 36px; right: 10px;
+            z-index: 7;
+            width: 44px; height: 44px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--beast-accent-soft, var(--bj-primary-300)) 0%, var(--beast-accent, var(--bj-primary-700)) 70%, var(--bj-primary-900) 100%);
+            border: 2px dashed var(--bj-primary-50);
+            box-shadow: 0 0 0 2px var(--bj-primary-900), 0 4px 10px rgba(0,0,0,0.4);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 18px;
+            color: var(--bj-primary-50);
+            text-shadow: 1px 1px 0 var(--bj-primary-900);
+        }
+
+        /* ============ Footer ============ */
+        .gallery-footer {
+            position: relative; z-index: 10;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 24px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            border-top: 2px dashed var(--bj-primary-700);
+        }
+        .footer-meta {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            letter-spacing: 0.25em;
+            color: var(--bj-primary-700);
+            text-transform: uppercase;
+        }
+        .footer-stamp {
+            display: inline-flex; flex-direction: column; align-items: center;
+            border: 3px double var(--state-error);
+            padding: 4px 14px;
+            transform: rotate(-8deg);
+            background: rgba(244, 241, 232, 0.6);
+        }
+        .footer-stamp span {
+            font-family: var(--font-display);
+            font-weight: 800;
+            font-size: 11px;
+            letter-spacing: 0.2em;
+            color: var(--state-error);
+            text-transform: uppercase;
+        }
+
+        /* ============ Responsive ============ */
+        @media (max-width: 768px) {
+            .gallery-header { padding: 24px 16px 16px; }
+            .gallery-grid { padding: 24px 16px 60px; gap: 16px; }
+            .header-title { font-size: 42px; }
+        }
+
+        /* ============ Entrance animation ============ */
+        @keyframes card-settle {
+            0%   { opacity: 0; transform: translateY(20px) scale(0.98); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .anim-card { animation: card-settle 0.6s ease-out both; }
+
+        @keyframes grain-flicker {
+            0%, 100% { opacity: 0.06; }
+            50%      { opacity: 0.1; }
+        }
+        .bg-grain {
+            position: fixed; inset: -50%; pointer-events: none; z-index: 3;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: 0.07;
+            mix-blend-mode: multiply;
+            animation: grain-flicker 0.18s steps(2) infinite;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-noise" aria-hidden="true"></div>
+    <div class="bg-scanlines" aria-hidden="true"></div>
+    <div class="bg-grain" aria-hidden="true"></div>
+
+    <!-- Classified strip -->
+    <div class="classified-strip">CLASSIFIED · 尾兽档案 NOS.01-09 · SHINOBI INTELLIGENCE ARCHIVE</div>
+
+    <!-- Header -->
+    <header class="gallery-header">
+        <div class="header-left">
+            <span class="header-tag">SERIES · 动态海报合集</span>
+            <h1 class="header-title">BIJUU</h1>
+            <p class="header-sub">尾兽档案 · NINE TAILED BEASTS</p>
+        </div>
+        <div class="header-right">
+            <a href="../index.html?skipIntro=1" class="back-btn">
+                <i data-lucide="arrow-left" style="width:14px;height:14px;"></i>
+                <span>返回作品集</span>
+            </a>
+        </div>
+    </header>
+
+    <div class="header-divider"><hr></div>
+
+    <!-- Gallery grid -->
+    <main class="gallery-grid" id="galleryGrid">
+        <!-- Cards are injected by JS to keep markup DRY -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="gallery-footer">
+        <div class="footer-meta">© 2026 · BIJUU ANIMATED POSTER SERIES · 9 / 9 ARCHIVED</div>
+        <div class="footer-stamp">
+            <span>SHINOBI CERTIFIED</span>
+            <span style="font-size:0.8em;opacity:0.8;">BIJUU SERIES</span>
+        </div>
+    </footer>
+
+    <script>
+        // ====== Beast data ======
+        var BEASTS = [
+            { slug: 'shukaku',   num: 1, cn: '守鹤',   en: 'SHUKAKU',   jp: '一尾の守鶴',   img: 'assets/image_0_a9sf3y.jpg', accent: '#c98a3a', soft: '#e0b878', glow: 'rgba(201,138,58,0.45)', village: 'SUNAGAKURE', nature: 'SAND 砂',     jinchuriki: '我愛羅' },
+            { slug: 'matatabi',  num: 2, cn: '又旅',   en: 'MATATABI',  jp: '二尾の又旅',   img: 'assets/image_1_4x6vzq.jpg', accent: '#2e6fb5', soft: '#6aa3d8', glow: 'rgba(46,111,181,0.5)',  village: 'KUMOGAKURE', nature: 'BLUE FIRE 蒼炎', jinchuriki: '由木人' },
+            { slug: 'isobu',     num: 3, cn: '矶抚',   en: 'ISOBU',     jp: '三尾の磯抚',   img: 'assets/image_2_7k82xz.jpg', accent: '#3f7a5e', soft: '#7aaa90', glow: 'rgba(63,122,94,0.45)',  village: 'KIRIGAKURE', nature: 'MIST 霧',     jinchuriki: '矢倉' },
+            { slug: 'son-goku',  num: 4, cn: '孙悟空', en: 'SON GOKU',  jp: '四尾の孫悟空', img: 'assets/image_3_g7yxpk.jpg', accent: '#c75a2a', soft: '#e89070', glow: 'rgba(199,90,42,0.5)',   village: 'IWAGAKURE',  nature: 'LAVA 熔岩',   jinchuriki: '老紫' },
+            { slug: 'kokuo',     num: 5, cn: '穆王',   en: 'KOKUO',     jp: '五尾の穆王',   img: 'assets/image_4_7k82xz.jpg', accent: '#5b8fc4', soft: '#9bc0e0', glow: 'rgba(91,143,196,0.45)', village: 'IWAGAKURE',  nature: 'STEAM 沸',    jinchuriki: 'ハン' },
+            { slug: 'saiken',    num: 6, cn: '犀犬',   en: 'SAIKEN',    jp: '六尾の犀犬',   img: 'assets/image_5_4x6vzq.jpg', accent: '#3fb0a8', soft: '#7fd4cd', glow: 'rgba(63,176,168,0.5)',  village: 'KIRIGAKURE', nature: 'ACID 酸',     jinchuriki: 'ウタカ' },
+            { slug: 'chomei',    num: 7, cn: '重明',   en: 'CHOMEI',    jp: '七尾の重明',   img: 'assets/image_6_7k82xz.jpg', accent: '#4ea64e', soft: '#8acc84', glow: 'rgba(78,166,78,0.45)',  village: 'TAKIGAKURE', nature: 'SCALE 鱗',    jinchuriki: 'フウ' },
+            { slug: 'gyuki',     num: 8, cn: '牛鬼',   en: 'GYUKI',     jp: '八尾の牛鬼',   img: 'assets/image_7_nxcvw0.jpg', accent: '#7a3fb0', soft: '#b07fd4', glow: 'rgba(122,63,176,0.5)',  village: 'KUMOGAKURE', nature: 'INK 墨',      jinchuriki: 'キラービー' },
+            { slug: 'kurama',    num: 9, cn: '九喇嘛', en: 'KURAMA',    jp: '九尾の九喇嘛', img: 'assets/image_8_7i939s.jpg', accent: '#d24a2a', soft: '#e88a6a', glow: 'rgba(210,74,42,0.5)',   village: 'KONOHAGAKURE', nature: 'FIRE 火',   jinchuriki: 'ナルト' }
+        ];
+
+        function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+        function renderCards() {
+            var grid = document.getElementById('galleryGrid');
+            var frag = document.createDocumentFragment();
+            BEASTS.forEach(function (b, i) {
+                var card = document.createElement('a');
+                card.className = 'beast-card anim-card';
+                card.href = b.slug + '.html';
+                card.setAttribute('aria-label', b.cn + ' · ' + b.en);
+                card.style.setProperty('--beast-accent', b.accent);
+                card.style.setProperty('--beast-accent-soft', b.soft);
+                card.style.setProperty('--beast-glow', b.glow);
+                card.style.animationDelay = (i * 0.06) + 's';
+
+                card.innerHTML =
+                    '<span class="card-corner tl" aria-hidden="true"></span>' +
+                    '<span class="card-corner tr" aria-hidden="true"></span>' +
+                    '<span class="card-corner bl" aria-hidden="true"></span>' +
+                    '<span class="card-corner br" aria-hidden="true"></span>' +
+                    '<div class="card-num-strip">NO.' + pad(b.num) + ' · ' + b.village + ' ARCHIVE</div>' +
+                    '<div class="card-img-wrap">' +
+                        '<img src="' + b.img + '" alt="' + b.cn + ' · ' + b.en + '" loading="lazy" decoding="async"/>' +
+                        '<div class="tail-badge">' + b.num + '</div>' +
+                        '<div class="card-title-band">' +
+                            '<h2 class="card-title">' + b.en + '</h2>' +
+                            '<div class="card-cn">' + b.cn + ' · ' + b.nature + '</div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="card-foot">' +
+                        '<div class="card-meta">' +
+                            '<span>尾数 / TAILS · <b>' + ['ONE','TWO','THREE','FOUR','FIVE','SIX','SEVEN','EIGHT','NINE'][b.num-1] + '</b></span>' +
+                            '<span>人柱力 · <b>' + b.jinchuriki + '</b></span>' +
+                        '</div>' +
+                        '<span class="card-enter">查看 <i data-lucide="arrow-right" style="width:12px;height:12px;"></i></span>' +
+                    '</div>';
+                frag.appendChild(card);
+            });
+            grid.appendChild(frag);
+        }
+
+        renderCards();
+        lucide.createIcons();
+    </script>
+</body>
+</html>
