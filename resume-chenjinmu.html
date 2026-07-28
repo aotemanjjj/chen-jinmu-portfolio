@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陈金木 · AI创意策划人简历</title>
+<style>
+  @page { size: A4; margin: 0; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --navy: #1a2744;
+    --navy-light: #243356;
+    --white: #ffffff;
+    --bg: #f8f9fb;
+    --text: #1a1a2e;
+    --text-secondary: #555;
+    --text-muted: #888;
+    --accent: #e94560;
+    --accent-blue: #4fc3f7;
+    --accent-purple: #b388ff;
+    --tag-bg: #eef0f5;
+    --border: #e0e2e8;
+    --font-sans: "PingFang SC", "Noto Sans CJK SC", "Microsoft YaHei", -apple-system, sans-serif;
+    --font-mono: "SF Mono", "Fira Code", monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: #e8e8e8;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .resume {
+    width: 794px;
+    min-height: 1123px;
+    background: var(--white);
+    display: flex;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  /* ===== LEFT SIDEBAR ===== */
+  .sidebar {
+    width: 240px;
+    background: var(--navy);
+    color: var(--white);
+    padding: 36px 24px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    flex-shrink: 0;
+  }
+
+  .sidebar-name {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 4px;
+    line-height: 1.2;
+  }
+
+  .sidebar-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    margin-bottom: 2px;
+    letter-spacing: 1px;
+  }
+
+  .sidebar-tagline {
+    font-size: 11px;
+    color: rgba(255,255,255,0.55);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  .sidebar-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.12);
+    margin-bottom: 18px;
+  }
+
+  .sidebar-section {
+    margin-bottom: 18px;
+  }
+
+  .sidebar-section-title {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: rgba(255,255,255,0.5);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+
+  .contact-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    opacity: 0.6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+  }
+
+  .skill-group {
+    margin-bottom: 12px;
+  }
+
+  .skill-group-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+
+  .skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .skill-tag {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 3px;
+    background: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.7);
+    white-space: nowrap;
+    letter-spacing: 0.5px;
+  }
+
+  .sidebar .skill-tag.accent {
+    background: rgba(233,69,96,0.25);
+    color: #ff8a9e;
+  }
+
+  /* ===== RIGHT MAIN ===== */
+  .main {
+    flex: 1;
+    padding: 36px 32px 32px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-num {
+    width: 26px;
+    height: 26px;
+    background: var(--navy);
+    color: var(--white);
+    font-size: 12px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 1px;
+  }
+
+  .summary-text {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+
+  .summary-text strong {
+    color: var(--text);
+  }
+
+  /* Project Item */
+  .project-item {
+    margin-bottom: 16px;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 4px;
+  }
+
+  .project-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .project-url {
+    font-size: 9px;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    letter-spacing: 0.3px;
+    display: block;
+    margin-bottom: 2px;
+    word-break: break-all;
+  }
+
+  .project-date {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    letter-spacing: 0.5px;
+  }
+
+  .project-subtitle {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    line-height: 1.5;
+  }
+
+  .project-details {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin-bottom: 6px;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .project-details::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--navy);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 6px;
+  }
+
+  .project-tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: var(--tag-bg);
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+  }
+
+  .project-tag.p01 { background: rgba(233,69,96,0.08); color: #c0394c; }
+  .project-tag.p02 { background: rgba(79,195,247,0.08); color: #2e8ab8; }
+  .project-tag.p03 { background: rgba(179,136,255,0.08); color: #7b5ea7; }
+
+  .project-divider {
+    height: 1px;
+    background: var(--border);
+    margin: 14px 0;
+  }
+
+  .project-divider:last-child {
+    display: none;
+  }
+
+  /* Work Item */
+  .work-item {
+    margin-bottom: 12px;
+  }
+
+  .work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2px;
+  }
+
+  .work-company {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .work-role {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-left: 4px;
+  }
+
+  .work-date {
+    font-size: 11px;
+    color: var(--text-muted);
+    white-space: nowrap;
+    font-family: var(--font-mono);
+  }
+
+  .work-desc {
+    font-size: 11.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .work-desc::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--text-muted);
+  }
+
+  .highlight-num {
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* Print */
+  @media print {
+    body { background: white; padding: 0; }
+    .resume { box-shadow: none; border-radius: 0; width: 100%; }
+    .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .section-num { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .project-tag.p01, .project-tag.p02, .project-tag.p03 { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .skill-tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .skill-tag.accent { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  @media screen and (max-width: 840px) {
+    .resume { width: 100%; flex-direction: column; }
+    .sidebar { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="resume">
+
+  <!-- ===== LEFT SIDEBAR ===== -->
+  <aside class="sidebar">
+    <div class="sidebar-name">陈金木</div>
+    <div class="sidebar-title">AI 创意策划人</div>
+    <div class="sidebar-tagline">策略 × 创意 × AI 复合型<br>从洞察到执行全链路闭环</div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-section">
+      <div class="contact-item">
+        <span class="contact-icon">☎</span>
+        <span>17351991711</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">✉</span>
+        <span>1370500919@qq.com</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">⌂</span>
+        <span>杭州</span>
+      </div>
+      <div class="contact-item">
+        <span class="contact-icon">◩</span>
+        <span>湖州师范大学 · 本科</span>
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">教育背景</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.75);line-height:1.5;">
+        湖州师范大学<br>
+        视觉传达设计 · 本科<br>
+        学士学位
+      </div>
+    </div>
+
+    <div class="sidebar-section">
+      <div class="sidebar-section-title">AI 创意能力</div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">AI 工具平台</div>
+        <div class="skill-tags">
+          <span class="skill-tag accent">ChatGPT</span>
+          <span class="skill-tag accent">Midjourney</span>
+          <span class="skill-tag accent">DALL·E</span>
+          <span class="skill-tag">Stable Diffusion</span>
+          <span class="skill-tag">Runway</span>
+          <span class="skill-tag">TRAE Work</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">创意策划</div>
+        <div class="skill-tags">
+          <span class="skill-tag accent">策略思维</span>
+          <span class="skill-tag accent">品牌构建</span>
+          <span class="skill-tag">市场洞察</span>
+          <span class="skill-tag">文案创作</span>
+          <span class="skill-tag">Social 传播</span>
+          <span class="skill-tag">Prompt 工程</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">设计 / 工程</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Illustrator</span>
+          <span class="skill-tag">Photoshop</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">HTML/CSS/JS</span>
+          <span class="skill-tag">GitHub CI/CD</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">核心素质</div>
+        <div class="skill-tags">
+          <span class="skill-tag accent">视觉审美</span>
+          <span class="skill-tag accent">商业转化</span>
+          <span class="skill-tag">项目统筹</span>
+          <span class="skill-tag">跨媒介表达</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===== RIGHT MAIN ===== -->
+  <main class="main">
+
+    <!-- 01 个人优势 -->
+    <div class="section-header">
+      <div class="section-num">01</div>
+      <div class="section-title">个人优势</div>
+    </div>
+    <p class="summary-text">
+      视觉传达设计科班 + <strong>AI 创意全案策划</strong> 复合背景。近半年基于 TRAE Work 独立完成 <strong>3 个 AI 创意作品集网页</strong> 的从 0 到 1 交付，覆盖品牌策略全案、Social 传播 Campaign、AI 视觉风格化创作三大领域，每项均含 <strong>市场调研 → 策略定位 → 创意产出 → 商业落地</strong> 完整链路。擅长将 AI 模型能力（ChatGPT / Midjourney / DALL·E / Runway）转化为可落地的品牌策略与传播方案，具备从策略洞察到网页级作品交付的全流程闭环能力。
+    </p>
+
+    <!-- 02 AI创意作品集网页 -->
+    <div class="section-header">
+      <div class="section-num">02</div>
+      <div class="section-title">AI 创意作品集网页</div>
+    </div>
+
+    <!-- Project 01 -->
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-name">网页一 · MOMENT AI 原生香氛品牌全案</span>
+        <span class="project-date">2026.07</span>
+      </div>
+      <div class="project-url">project-01-brand.html · project-01-product.html</div>
+      <div class="project-subtitle">品牌策略全案网页 · 从市场洞察到品牌落地的完整 AI 辅助创意流程</div>
+      <div class="project-details">
+        基于 <span class="highlight-num">400 亿</span> 中国香水市场数据与 Z 世代 <span class="highlight-num">45.2%</span> 消费占比洞察，构建「AI 情绪定制香氛」品牌定位。ChatGPT 产出 50+ 品牌名候选，四维筛选锁定「MOMENT」；Midjourney 生成品牌 Logo、KV 主视觉、包装设计；DALL·E 辅助产品概念渲染。网页含完整品牌策略书：市场洞察报告、品牌定位策略、视觉识别系统、上市传播框架。另附产品详情页：8 项规格参数、3 档定价、4 大应用场景、4 步用户旅程。
+      </div>
+      <div class="project-tags">
+        <span class="project-tag p01">品牌策略</span>
+        <span class="project-tag p01">市场洞察</span>
+        <span class="project-tag p01">AI 视觉生成</span>
+        <span class="project-tag p01">品牌命名</span>
+        <span class="project-tag p01">VI 系统</span>
+        <span class="project-tag p01">产品详情页</span>
+      </div>
+    </div>
+
+    <div class="project-divider"></div>
+
+    <!-- Project 02 -->
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-name">网页二 · #写给AI时代的一封信 Social 传播</span>
+        <span class="project-date">2026.07</span>
+      </div>
+      <div class="project-url">project-02-social.html · project-02-product.html</div>
+      <div class="project-subtitle">全渠道 Social 传播 Campaign 网页 · AI 工具辅助创意执行，传递人性温度</div>
+      <div class="project-details">
+        基于小红书 <span class="highlight-num">7000+</span> 细分圈层与短视频 <span class="highlight-num">85%</span> 内容占比趋势，策划「AI × 手写温度」话题营销。ChatGPT 产出 30+ 条多平台适配文案与 KOL Brief；Midjourney 生成系列 Social 海报；Runway 制作 AI 概念短片。网页含完整传播方案：4 周传播节奏、10 人 KOL 矩阵、5 平台渠道策略。另附执行详情页：6 项 KPI 预估（目标/乐观双档）、渠道预算分配、4 项风险预案，预估曝光 <span class="highlight-num">5 亿+</span>。
+      </div>
+      <div class="project-tags">
+        <span class="project-tag p02">话题策划</span>
+        <span class="project-tag p02">Social 洞察</span>
+        <span class="project-tag p02">内容矩阵</span>
+        <span class="project-tag p02">AI 短片</span>
+        <span class="project-tag p02">全渠道传播</span>
+        <span class="project-tag p02">执行方案页</span>
+      </div>
+    </div>
+
+    <div class="project-divider"></div>
+
+    <!-- Project 03 -->
+    <div class="project-item">
+      <div class="project-header">
+        <span class="project-name">网页三 · 赛博国风 AI 视觉风格化创作实验</span>
+        <span class="project-date">2026.07</span>
+      </div>
+      <div class="project-url">project-03-visual.html · project-03-product.html</div>
+      <div class="project-subtitle">东方美学 × 赛博朋克 · 建立可复现的 AI 视觉创作方法论</div>
+      <div class="project-details">
+        基于 <span class="highlight-num">170.3 亿</span> 图像 AIGC 市场趋势，将水墨/工笔/壁画等东方美学与赛博朋克视觉语言融合，创造「赛博国风」独特美学体系。建立 3 大系列（机械山水/赛博敦煌/数据园林）与结构化 Prompt 模板体系，形成可复现的 AI 创作方法论。网页含完整视觉探索过程与 Prompt 工程体系。另附商业方案页：品牌联名（预估 <span class="highlight-num">20-60 万</span>/年）、沉浸式展览（<span class="highlight-num">30-90 万</span>/年）、数字藏品（<span class="highlight-num">30-90 万</span>/年）3 条变现路径。
+      </div>
+      <div class="project-tags">
+        <span class="project-tag p03">视觉审美</span>
+        <span class="project-tag p03">风格探索</span>
+        <span class="project-tag p03">Prompt 工程</span>
+        <span class="project-tag p03">AI 创作</span>
+        <span class="project-tag p03">商业应用</span>
+        <span class="project-tag p03">商业方案页</span>
+      </div>
+    </div>
+
+    <!-- 03 作品集网页技术实现 -->
+    <div class="section-header" style="margin-top: 4px;">
+      <div class="section-num">03</div>
+      <div class="section-title">作品集网页技术实现</div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-header">
+        <span class="work-company">全栈交付能力</span>
+        <span class="work-role">· 6 个完整网页独立开发</span>
+        <span class="work-date">HTML/CSS/JS</span>
+      </div>
+      <div class="work-desc">
+        作品集首页 + 3 个项目主页面 + 3 个产品/商业详情页，共 <span class="highlight-num">7 个完整网页</span>，纯 HTML/CSS/JS 零框架依赖，含响应式适配、打印导出 PDF、AI 生成视觉素材嵌入。体现从创意概念到网页级成品的完整交付能力。
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-header">
+        <span class="work-company">AI 全链路工作流</span>
+        <span class="work-role">· 策略 → 创意 → 执行 → 落地</span>
+        <span class="work-date">方法论驱动</span>
+      </div>
+      <div class="work-desc">
+        ChatGPT 负责策略分析/文案创作/洞察提炼；Midjourney + DALL·E 负责品牌 KV/海报/产品概念图；Runway 负责 AI 短片；TRAE Work 负责网页开发与部署。形成 <span class="highlight-num">「策略思考 → 创意转化 → AI 放大」</span> 的标准化创意生产方法论，可复用于全行业品牌与传播项目。
+      </div>
+    </div>
+
+    <div class="work-item">
+      <div class="work-header">
+        <span class="work-company">商业落地思维</span>
+        <span class="work-role">· 每个项目均含商业转化路径</span>
+        <span class="work-date">结果导向</span>
+      </div>
+      <div class="work-desc">
+        品牌策略项目含产品定价与场景方案（¥299-¥1,999）；Social Campaign 含 KPI 预估与渠道预算分配（曝光 5 亿+）；视觉实验含品牌联名/展览/数字藏品 3 条变现路径（预估年收入 <span class="highlight-num">90-270 万</span>）。体现从创意到商业价值的完整闭环思维。
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
