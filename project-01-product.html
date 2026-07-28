@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MOMENT · 产品详情 | AI创意作品集</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .product-hero { padding: calc(var(--nav-height) + 80px) 24px 80px; background: linear-gradient(135deg, #1a1a2e 0%, #e94560 15%, #0a0a0f 100%); text-align: center; }
+    .product-hero-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 3px; color: var(--accent); text-transform: uppercase; margin-bottom: 16px; }
+    .product-hero-title { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 16px; }
+    .product-hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+    .product-section { padding: 80px 24px; max-width: 900px; margin: 0 auto; }
+    .product-section-alt { background: var(--bg-secondary); }
+    .product-section h2 { font-size: 28px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.5px; }
+    .product-section h3 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; color: var(--accent); }
+    .product-section p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+    .product-section ul { margin: 16px 0; padding-left: 20px; }
+    .product-section li { font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 8px; list-style: disc; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .tag-item { padding: 8px 16px; background: rgba(233,69,96,0.1); border: 1px solid rgba(233,69,96,0.2); border-radius: 6px; font-size: 13px; color: var(--accent); }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 14px; transition: color var(--transition); }
+    .back-link:hover { color: var(--text-primary); }
+    .spec-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+    .spec-table th { background: var(--bg-card); padding: 12px 16px; text-align: left; font-weight: 600; color: var(--text-primary); border-bottom: 1px solid var(--border); width: 30%; }
+    .spec-table td { padding: 12px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+    .spec-table tr:last-child th, .spec-table tr:last-child td { border-bottom: none; }
+    .price-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; text-align: center; margin: 16px 0; }
+    .price-card h3 { color: var(--accent); font-size: 24px; margin: 0 0 8px; }
+    .price-card .price { font-size: 48px; font-weight: 800; color: var(--text-primary); margin: 8px 0; }
+    .price-card p { font-size: 14px; margin-bottom: 0; }
+    .price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+    .scenario-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 24px 0; }
+    .scenario-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+    .scenario-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary); }
+    .scenario-card p { font-size: 14px; margin-bottom: 0; }
+    .highlight-stat { font-size: 36px; font-weight: 800; color: var(--accent); display: block; margin-bottom: 4px; }
+    .data-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }
+    .data-card { background: var(--bg-card); border: 1px solid rgba(233,69,96,0.15); border-radius: 8px; padding: 20px; text-align: center; }
+    .data-card .num { font-size: 32px; font-weight: 800; color: var(--accent); }
+    .data-card .label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+    .data-source { font-size: 12px; color: var(--text-muted); margin-top: 8px; text-align: right; }
+    @media (max-width: 768px) { .price-grid, .scenario-grid { grid-template-columns: 1fr; } .data-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Portfolio</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">作品</a></li>
+        <li><a href="index.html#toolchain">AI工具链</a></li>
+        <li><a href="index.html#capability">能力图谱</a></li>
+        <li><a href="index.html#about">关于我</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="product-hero">
+    <a href="project-01-brand.html" class="back-link" style="margin-bottom: 40px; display: inline-flex;">← 返回品牌全案</a>
+    <p class="product-hero-label">产品详情 · MOMENT</p>
+    <h1 class="product-hero-title">MOMENT S1</h1>
+    <p class="product-hero-subtitle">全球首款AI情绪定制香氛 — 你的气味，就是此刻</p>
+  </section>
+
+  <!-- 市场调研数据 -->
+  <section class="product-section">
+    <h2>市场调研数据</h2>
+    <p>以下数据来源于行业报告和消费者调研，支撑MOMENT品牌定位的商业逻辑：</p>
+    <div class="data-grid">
+      <div class="data-card"><div class="num">400亿</div><div class="label">2025年中国香水市场规模</div></div>
+      <div class="data-card"><div class="num">45.2%</div><div class="label">Z世代消费者占比</div></div>
+      <div class="data-card"><div class="num">60.6%</div><div class="label">2025年同比增速</div></div>
+      <div class="data-card"><div class="num">89%</div><div class="label">香薰品类增长</div></div>
+    </div>
+    <div class="data-source">数据来源：博研智尚《2026年中国香水和香氛行业市场报告》、天猫2025品类数据</div>
+
+    <h3>关键洞察</h3>
+    <ul>
+      <li><strong>Z世代崛起：</strong>Z世代消费者（18-28岁）预计占香水消费的45.2%，年消费金额84.4亿元，是增长最快的群体</li>
+      <li><strong>个性化需求爆发：</strong>68%消费者认为现有品牌「不够个性」，香水套装线上增速达42.1%，远超单品16.5%</li>
+      <li><strong>AI定制蓝海：</strong>AI个性化定制在美妆领域渗透率仅12%，但87%的Z世代表示愿意尝试AI推荐产品</li>
+      <li><strong>情绪消费：</strong>「情绪价值」超越「功能价值」成为Z世代消费决策第一因素</li>
+    </ul>
+  </section>
+
+  <!-- 产品详情 -->
+  <section class="product-section product-section-alt">
+    <h2>产品详情</h2>
+    <img src="assets/images/project-01/product-detail.jpg" alt="MOMENT S1产品详情" class="project-image" style="margin-bottom:24px;">
+
+    <h3>产品规格</h3>
+    <table class="spec-table">
+      <tr><th>产品名称</th><td>MOMENT S1 · AI情绪定制香氛</td></tr>
+      <tr><th>容量</th><td>50ml / 30ml 便携装</td></tr>
+      <tr><th>香调类型</th><td>6种情绪基底（愉悦/宁静/激情/忧郁/好奇/自信）× AI个性化调配</td></tr>
+      <tr><th>核心技术</th><td>AI情绪识别算法 + 个性化香氛配方引擎 + 智能调香系统</td></tr>
+      <tr><th>香型特征</th><td>花果香调 × 木质基底 × AI定制比例</td></tr>
+      <tr><th>包装材质</th><td>可回收玻璃瓶身 + 玫瑰金铝盖 + FSC认证纸盒</td></tr>
+      <tr><th>配件</th><td>NFC智能芯片（手机触碰即可查看配方故事）</td></tr>
+      <tr><th>起订量</th><td>1瓶起订，AI个性化定制</td></tr>
+    </table>
+
+    <h3>价格体系</h3>
+    <div class="price-grid">
+      <div class="price-card">
+        <h3>单人体验装</h3>
+        <div class="price">¥299</div>
+        <p>30ml · AI基础定制<br>含1次气味人格测试</p>
+      </div>
+      <div class="price-card" style="border-color: rgba(233,69,96,0.4);">
+        <h3>经典定制装 ⭐</h3>
+        <div class="price">¥599</div>
+        <p>50ml · AI深度定制<br>含季度情绪追踪报告</p>
+      </div>
+      <div class="price-card">
+        <h3>年度订阅</h3>
+        <div class="price">¥1,999</div>
+        <p>四季×50ml限定款<br>含专属调香师AI助手</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 应用场景 -->
+  <section class="product-section">
+    <h2>应用场景</h2>
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <h4>🎁 节日礼物</h4>
+        <p>情人节/生日/纪念日专属定制，AI根据收礼人性格生成独特香氛，附带AI生成的情感卡片和配方故事，让礼物无法复制</p>
+      </div>
+      <div class="scenario-card">
+        <h4>💆 情绪疗愈</h4>
+        <p>连接MOMENT App进行每日情绪打卡，AI分析情绪波动并推荐对应香型，打造「情绪香氛日记」，辅助日常情绪管理</p>
+      </div>
+      <div class="scenario-card">
+        <h4>🏨 酒店/空间香氛</h4>
+        <p>高端酒店/民宿定制专属空间香氛，AI根据空间风格和客群画像生成环境香，提升品牌记忆点，差异化体验</p>
+      </div>
+      <div class="scenario-card">
+        <h4>🤝 企业定制</h4>
+        <p>企业品牌香氛定制，将品牌理念转化为专属气味，用于VIP客户伴手礼、年会伴手礼、品牌体验空间</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 用户旅程 -->
+  <section class="product-section product-section-alt">
+    <h2>用户旅程</h2>
+    <img src="assets/images/project-01/app-mockup.jpg" alt="MOMENT App情绪追踪界面" class="project-image" style="width:100%; border-radius:12px; margin-bottom:24px;">
+    <div style="display: flex; flex-direction: column; gap: 20px; margin: 24px 0;">
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <div style="width: 40px;height: 40px;border-radius: 50%;background: var(--accent);color: #fff;display: flex;align-items: center;justify-content: center;font-weight: 700;flex-shrink: 0;">1</div>
+        <div><h4 style="color:var(--text-primary); margin-bottom:4px;">情绪识别</h4><p style="font-size:14px;color:var(--text-secondary);margin:0;">打开MOMENT App，完成3分钟「气味人格」测试，AI分析当前情绪状态和偏好</p></div>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <div style="width: 40px;height: 40px;border-radius: 50%;background: var(--accent);color: #fff;display: flex;align-items: center;justify-content: center;font-weight: 700;flex-shrink: 0;">2</div>
+        <div><h4 style="color:var(--text-primary); margin-bottom:4px;">AI配方生成</h4><p style="font-size:14px;color:var(--text-secondary);margin:0;">AI引擎基于情绪数据，从6种香调基底中调配专属比例，生成3个候选配方供选择</p></div>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <div style="width: 40px;height: 40px;border-radius: 50%;background: var(--accent);color: #fff;display: flex;align-items: center;justify-content: center;font-weight: 700;flex-shrink: 0;">3</div>
+        <div><h4 style="color:var(--text-primary); margin-bottom:4px;">专属定制生产</h4><p style="font-size:14px;color:var(--text-secondary);margin:0;">选定配方后72小时内完成生产，瓶身激光雕刻用户姓名和专属配方编号</p></div>
+      </div>
+      <div style="display: flex; gap: 16px; align-items: center;">
+        <div style="width: 40px;height: 40px;border-radius: 50%;background: var(--accent);color: #fff;display: flex;align-items: center;justify-content: center;font-weight: 700;flex-shrink: 0;">4</div>
+        <div><h4 style="color:var(--text-primary); margin-bottom:4px;">持续陪伴</h4><p style="font-size:14px;color:var(--text-secondary);margin:0;">NFC触碰手机查看配方故事，App定期推送情绪香氛报告，记录你的「气味日记」</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 市场验证 -->
+  <section class="product-section">
+    <h2>市场验证</h2>
+    <div class="data-grid">
+      <div class="data-card"><div class="num">87%</div><div class="label">Z世代愿尝试AI定制</div></div>
+      <div class="data-card"><div class="num">73%</div><div class="label">香味驱动洗护消费</div></div>
+      <div class="data-card"><div class="num">42.1%</div><div class="label">套装品类增速</div></div>
+      <div class="data-card"><div class="num">286亿</div><div class="label">2026年市场规模</div></div>
+    </div>
+    <div class="data-source">数据来源：魔镜洞察2026香水市场报告、什么值得买2026消费趋势、博研智尚行业报告</div>
+  </section>
+
+  <div class="tag-list" style="max-width:900px; margin: 0 auto; justify-content: center;">
+    <span class="tag-item">AI定制</span><span class="tag-item">情绪香氛</span><span class="tag-item">Z世代</span><span class="tag-item">个性化消费</span><span class="tag-item">DTC品牌</span>
+  </div>
+
+  <section class="product-section" style="text-align: center;">
+    <a href="project-01-brand.html" class="btn-primary">← 返回品牌全案</a>
+    <br><br>
+    <a href="index.html" class="back-link">← 返回作品集首页</a>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 AI Creative Portfolio. Built with AI as creative partner.</p>
+  </footer>
+  <button class="print-btn" onclick="window.print()" title="导出PDF">🖨</button>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>赛博国风 · 商业应用详情 | AI创意作品集</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .product-hero { padding: calc(var(--nav-height) + 80px) 24px 80px; background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #0a0a0f 100%); text-align: center; }
+    .product-hero-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 3px; color: #b388ff; text-transform: uppercase; margin-bottom: 16px; }
+    .product-hero-title { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 16px; }
+    .product-hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+    .product-section { padding: 80px 24px; max-width: 900px; margin: 0 auto; }
+    .product-section-alt { background: var(--bg-secondary); }
+    .product-section h2 { font-size: 28px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.5px; }
+    .product-section h3 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; color: #b388ff; }
+    .product-section p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+    .product-section ul { margin: 16px 0; padding-left: 20px; }
+    .product-section li { font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 8px; list-style: disc; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .tag-item { padding: 8px 16px; background: rgba(179,136,255,0.1); border: 1px solid rgba(179,136,255,0.2); border-radius: 6px; font-size: 13px; color: #b388ff; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 14px; transition: color var(--transition); }
+    .back-link:hover { color: var(--text-primary); }
+    .data-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }
+    .data-card { background: var(--bg-card); border: 1px solid rgba(179,136,255,0.15); border-radius: 8px; padding: 20px; text-align: center; }
+    .data-card .num { font-size: 32px; font-weight: 800; color: #b388ff; }
+    .data-card .label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+    .data-source { font-size: 12px; color: var(--text-muted); margin-top: 8px; text-align: right; }
+    .scenario-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 24px 0; }
+    .scenario-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+    .scenario-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary); }
+    .scenario-card p { font-size: 14px; margin-bottom: 0; }
+    .pricing-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+    .pricing-table th { background: var(--bg-card); padding: 12px 16px; text-align: left; font-weight: 600; color: var(--text-primary); border-bottom: 1px solid var(--border); }
+    .pricing-table td { padding: 12px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+    .pricing-table tr:last-child th, .pricing-table tr:last-child td { border-bottom: none; }
+    .highlight-stat { font-size: 36px; font-weight: 800; color: #b388ff; display: block; margin-bottom: 4px; }
+    @media (max-width: 768px) { .scenario-grid { grid-template-columns: 1fr; } .data-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Portfolio</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">作品</a></li>
+        <li><a href="index.html#toolchain">AI工具链</a></li>
+        <li><a href="index.html#capability">能力图谱</a></li>
+        <li><a href="index.html#about">关于我</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="product-hero">
+    <a href="project-03-visual.html" class="back-link" style="margin-bottom: 40px; display: inline-flex;">← 返回视觉实验</a>
+    <p class="product-hero-label">商业应用详情</p>
+    <h1 class="product-hero-title">赛博国风 · 商业落地</h1>
+    <p class="product-hero-subtitle">从艺术实验到商业变现 — 三大应用场景完整方案</p>
+  </section>
+
+  <!-- 市场调研数据 -->
+  <section class="product-section">
+    <h2>市场调研数据</h2>
+    <div class="data-grid">
+      <div class="data-card"><div class="num">170.3亿</div><div class="label">2026图像AIGC市场规模</div></div>
+      <div class="data-card"><div class="num">32.4%</div><div class="label">AIGC图像年增长率</div></div>
+      <div class="data-card"><div class="num">4K/8K</div><div class="label">商用图像标准</div></div>
+      <div class="data-card"><div class="num">国风</div><div class="label">全风格精准复刻</div></div>
+    </div>
+    <div class="data-source">数据来源：豆丁网《2026中国图像类AIGC行业报告》、火星人教育AIGC设计趋势</div>
+
+    <h3>关键洞察</h3>
+    <ul>
+      <li><strong>技术成熟：</strong>2026年AI图像生成实现4K/8K高清写实，LoRA风格固化技术全面普及，商用稳定性成型</li>
+      <li><strong>国风崛起：</strong>国风、写实、科幻等全风格均可精准复刻，手部/五官/透视等失真问题基本解决</li>
+      <li><strong>电商加速：</strong>电商主图、海报设计已大规模使用AIGC，AI视觉设计成为品牌标配</li>
+      <li><strong>创意溢价：</strong>掌握独特AI风格的创作者可获3-5倍溢价，风格化创作成为核心竞争力</li>
+    </ul>
+  </section>
+
+  <!-- 三大商业应用 -->
+  <section class="product-section product-section-alt">
+    <h2>商业应用方案</h2>
+    <img src="assets/images/project-03/fashion-collab.jpg" alt="赛博国风潮牌联名" class="project-image" style="margin-bottom:24px;">
+
+    <h3>应用一：潮牌服饰联名</h3>
+    <p><strong>合作模式：</strong>与国潮服饰品牌联名，赛博国风系列图案应用于T恤、卫衣、滑板、帆布包等单品。</p>
+    <table class="pricing-table">
+      <tr><th>版权合作</th><td>单系列授权费 5-15万 + 销售额分成3-5%</td></tr>
+      <tr><th>SKU规划</th><td>10-15款单品，覆盖上装/下装/配饰</td></tr>
+      <tr><th>目标人群</th><td>18-28岁潮流消费者，对国潮和赛博朋克有双重兴趣</td></tr>
+      <tr><th>预计销量</th><td>首季 5,000-10,000件，GMV 150-500万</td></tr>
+    </table>
+
+    <h3>应用二：沉浸式展览/快闪空间</h3>
+    <p><strong>合作模式：</strong>为商业地产/品牌提供赛博国风主题空间设计，包含视觉方案、空间布局、互动体验设计。</p>
+    <table class="pricing-table">
+      <tr><th>设计服务费</th><td>10-30万/项目（含全套视觉方案）</td></tr>
+      <tr><th>空间规模</th><td>200-500㎡沉浸式空间</td></tr>
+      <tr><th>门票定价</th><td>98-168元/人，预计日均接待500-1000人</td></tr>
+      <tr><th>合作方</th><td>购物中心、美术馆、品牌快闪店</td></tr>
+    </table>
+
+    <h3>应用三：数字藏品/NFT</h3>
+    <p><strong>合作模式：</strong>将赛博国风系列作品转化为数字藏品，在NFT平台发行。</p>
+    <table class="pricing-table">
+      <tr><th>发行数量</th><td>3个系列 × 各1000份</td></tr>
+      <tr><th>定价策略</th><td>盲盒 99-299元/份，稀有款二级市场溢价</td></tr>
+      <tr><th>预计收入</th><td>30-90万（一级市场发行）</td></tr>
+      <tr><th>目标平台</th><td>鲸探、幻核、OpenSea</td></tr>
+    </table>
+  </section>
+
+  <!-- 应用场景 -->
+  <section class="product-section">
+    <h2>更多应用场景</h2>
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <h4>🎮 游戏/虚拟世界</h4>
+        <p>赛博国风可作为游戏皮肤、虚拟空间装饰、元宇宙场景的视觉风格，搭建虚拟国风赛博世界</p>
+      </div>
+      <div class="scenario-card">
+        <h4>🎬 影视/广告视觉</h4>
+        <p>为电影/广告/音乐视频提供概念美术和视觉风格设定，低成本产出高质量前期视觉方案</p>
+      </div>
+      <div class="scenario-card">
+        <h4>📱 社交媒体内容</h4>
+        <p>作为个人IP/品牌社交媒体账号的视觉风格，形成独特辨识度，吸引粉丝和品牌合作</p>
+      </div>
+      <div class="scenario-card">
+        <h4>🏛️ 公共艺术装置</h4>
+        <p>城市公共空间艺术装置设计，将赛博国风融入城市景观，打造网红打卡地标</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 商业模式总览 -->
+  <section class="product-section product-section-alt">
+    <h2>商业模式总览</h2>
+    <table class="pricing-table">
+      <tr><th>收入来源</th><th>模式</th><th>预估年收入</th></tr>
+      <tr><td>品牌联名授权</td><td>版权费 + 销售分成</td><td>20-60万</td></tr>
+      <tr><td>展览设计服务</td><td>项目制收费</td><td>30-90万</td></tr>
+      <tr><td>数字藏品发行</td><td>一级市场销售</td><td>30-90万</td></tr>
+      <tr><td>社交媒体内容</td><td>品牌合作 + 流量变现</td><td>10-30万</td></tr>
+      <tr style="font-weight: 700; background: rgba(179,136,255,0.05);"><td>合计</td><td></td><td style="color: #b388ff;">90-270万</td></tr>
+    </table>
+  </section>
+
+  <div class="tag-list" style="max-width:900px; margin: 0 auto; justify-content: center;">
+    <span class="tag-item">品牌联名</span><span class="tag-item">沉浸展览</span><span class="tag-item">数字藏品</span><span class="tag-item">商业变现</span><span class="tag-item">风格IP</span>
+  </div>
+
+  <section class="product-section" style="text-align: center;">
+    <a href="project-03-visual.html" class="btn-primary">← 返回视觉实验</a>
+    <br><br>
+    <a href="index.html" class="back-link">← 返回作品集首页</a>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 AI Creative Portfolio. Built with AI as creative partner.</p>
+  </footer>
+  <button class="print-btn" onclick="window.print()" title="导出PDF">🖨</button>
+</body>
+</html>

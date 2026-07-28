@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>项目03 · 赛博国风 AI视觉探索 | AI创意作品集</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .project-hero { padding: calc(var(--nav-height) + 80px) 24px 80px; background: linear-gradient(135deg, #0f3460 0%, #533483 50%, #0a0a0f 100%); text-align: center; }
+    .project-hero-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 3px; color: #b388ff; text-transform: uppercase; margin-bottom: 16px; }
+    .project-hero-title { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 16px; }
+    .project-hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+    .project-section { padding: 80px 24px; max-width: 800px; margin: 0 auto; }
+    .project-section-alt { background: var(--bg-secondary); }
+    .project-section h2 { font-size: 28px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.5px; }
+    .project-section h3 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; color: #b388ff; }
+    .project-section p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+    .project-section ul { margin: 16px 0; padding-left: 20px; }
+    .project-section li { font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 8px; list-style: disc; }
+    .series-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 24px 0; }
+    .series-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px 24px; text-align: center; transition: border-color var(--transition); }
+    .series-card:hover { border-color: rgba(179,136,255,0.3); }
+    .series-card-icon { font-size: 40px; margin-bottom: 16px; }
+    .series-card h4 { font-size: 18px; font-weight: 600; margin-bottom: 8px; }
+    .series-card p { font-size: 14px; margin-bottom: 0; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .tag-item { padding: 8px 16px; background: rgba(179,136,255,0.1); border: 1px solid rgba(179,136,255,0.2); border-radius: 6px; font-size: 13px; color: #b388ff; }
+    .method-steps { display: flex; flex-direction: column; gap: 20px; margin: 24px 0; }
+    .method-step { display: flex; gap: 20px; align-items: flex-start; }
+    .method-step-num { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: #533483; color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; }
+    .method-step-content h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--text-primary); }
+    .method-step-content p { font-size: 14px; margin-bottom: 0; }
+    .prompt-card { background: var(--bg-card); border: 1px solid rgba(179,136,255,0.2); border-radius: var(--radius); padding: 20px; margin: 16px 0; }
+    .prompt-card h4 { font-size: 13px; font-family: var(--font-mono); color: #b388ff; letter-spacing: 1px; margin-bottom: 10px; }
+    .prompt-card code { font-size: 13px; color: var(--text-secondary); line-height: 1.7; display: block; word-break: break-all; }
+    .app-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+    .app-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; text-align: center; }
+    .app-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+    .app-card p { font-size: 13px; margin-bottom: 0; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 14px; transition: color var(--transition); }
+    .back-link:hover { color: var(--text-primary); }
+    @media (max-width: 768px) { .series-grid, .app-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Portfolio</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">作品</a></li>
+        <li><a href="index.html#toolchain">AI工具链</a></li>
+        <li><a href="index.html#capability">能力图谱</a></li>
+        <li><a href="index.html#about">关于我</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="project-hero">
+    <a href="index.html" class="back-link" style="margin-bottom: 40px; display: inline-flex;">← 返回作品集</a>
+    <p class="project-hero-label">项目 03 · AI视觉创意实验</p>
+    <h1 class="project-hero-title">赛博国风</h1>
+    <p class="project-hero-subtitle">当千年东方美学遇见未来机械 — AI视觉风格化创作的深度探索</p>
+  </section>
+
+  <!-- 项目概述 -->
+  <section class="project-section">
+    <h2>项目概述</h2>
+    <img src="assets/images/project-03/cyber-landscape.jpg" alt="赛博国风 机械山水" class="project-image" style="width:100%; border-radius:12px; margin-bottom:24px;">
+    <p>这是一次AI视觉风格的深度探索实验。我将中国传统美学（水墨、工笔、壁画）与赛博朋克视觉语言融合，创造「赛博国风」这一独特美学体系，并探索其商业应用价值。</p>
+    <p>本项目不仅展示了AI视觉生成的技术能力，更体现了创意方法论——如何将抽象的美学概念转化为可操作的AI创作流程。</p>
+    <div class="tag-list">
+      <span class="tag-item">视觉审美</span>
+      <span class="tag-item">风格探索</span>
+      <span class="tag-item">Prompt工程</span>
+      <span class="tag-item">AI创作</span>
+      <span class="tag-item">商业应用</span>
+    </div>
+    <div style="text-align: center; margin-top: 32px;">
+      <a href="project-03-product.html" class="btn-primary" style="background: transparent; border: 1px solid #b388ff; color: #b388ff;">查看商业应用详情 →</a>
+    </div>
+  </section>
+
+  <!-- 市场调研数据 -->
+  <section class="project-section project-section-alt">
+    <h2>市场调研数据</h2>
+    <div class="series-grid">
+      <div class="series-card" style="text-align: left;">
+        <p><span class="highlight-stat" style="color: #b388ff;">170.3亿</span></p>
+        <h4>2026图像AIGC市场规模</h4>
+        <p>较2025年增长32.4%，电商主图/海报设计已大规模使用AIGC</p>
+      </div>
+      <div class="series-card" style="text-align: left;">
+        <p><span class="highlight-stat" style="color: #b388ff;">4K/8K</span></p>
+        <h4>商用图像精度标准</h4>
+        <p>LoRA风格固化技术普及，国风/写实/科幻等全风格精准复刻</p>
+      </div>
+      <div class="series-card" style="text-align: left;">
+        <p><span class="highlight-stat" style="color: #b388ff;">3-5x</span></p>
+        <h4>风格化创作溢价</h4>
+        <p>掌握独特AI风格的创作者可获3-5倍溢价，风格化成为核心竞争力</p>
+      </div>
+    </div>
+    <p style="font-size: 12px; color: var(--text-muted); text-align: right; margin-top: 12px;">数据来源：豆丁网《2026中国图像类AIGC行业报告》、火星人教育AIGC设计趋势</p>
+  </section>
+
+  <!-- 创意概念 -->
+  <section class="project-section project-section-alt">
+    <h2>创意概念</h2>
+    <h3>Big Idea</h3>
+    <p style="font-size: 24px; font-weight: 700; color: var(--text-primary); margin: 24px 0;">「当千年东方美学遇见未来机械」</p>
+    <p>东方美学讲究「意境」「留白」「气韵」，赛博朋克追求「高密度」「机械感」「霓虹光影」。两者的碰撞不是简单的拼贴，而是寻找共同的美学基因——秩序感、符号化、超现实。</p>
+
+    <h3>三大系列</h3>
+    <div class="series-grid">
+      <div class="series-card">
+        <div class="series-card-icon">🏔️</div>
+        <h4>机械山水</h4>
+        <p>AI生成的水墨山水画中融入机械结构和电路纹理，山峦由齿轮构成，流水是数据流，云雾是粒子特效</p>
+      </div>
+      <div class="series-card">
+        <div class="series-card-icon">🏛️</div>
+        <h4>赛博敦煌</h4>
+        <p>敦煌壁画飞天形象与霓虹光影的碰撞，飞天衣袂由光纤织成，莲花座是悬浮的机械装置</p>
+      </div>
+      <div class="series-card">
+        <div class="series-card-icon">🏯</div>
+        <h4>数据园林</h4>
+        <p>苏州园林的框景美学用全息投影和数据结构重新诠释，太湖石是代码矩阵，月亮门是数据传送门</p>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px;">
+      <div><img src="assets/images/project-03/cyber-dunhuang.jpg" alt="赛博敦煌" style="width:100%; border-radius:12px;"><p style="text-align:center; font-size:13px; color:var(--text-secondary); margin-top:8px;">赛博敦煌系列</p></div>
+      <div><img src="assets/images/project-03/data-garden.jpg" alt="数据园林" style="width:100%; border-radius:12px;"><p style="text-align:center; font-size:13px; color:var(--text-secondary); margin-top:8px;">数据园林系列</p></div>
+    </div>
+  </section>
+
+  <!-- 风格方法论 -->
+  <section class="project-section">
+    <h2>风格方法论</h2>
+    <p>将「赛博国风」从概念变为可复现的AI创作方法论，我建立了一套完整的Prompt工程体系：</p>
+
+    <div class="method-steps">
+      <div class="method-step">
+        <div class="method-step-num">1</div>
+        <div class="method-step-content">
+          <h4>风格解构</h4>
+          <p>分析东方美学核心元素：水墨渲染、留白构图、线条韵律、意境表达。确定风格关键词：水墨、工笔、壁画、留白、禅意。</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="method-step-num">2</div>
+        <div class="method-step-content">
+          <h4>赛博元素注入</h4>
+          <p>引入赛博朋克视觉元素：霓虹灯管、机械齿轮、数字纹理、全息投影、粒子特效。找到与东方美学的碰撞点。</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="method-step-num">3</div>
+        <div class="method-step-content">
+          <h4>Prompt关键词体系</h4>
+          <p>建立「赛博国风」结构化Prompt模板，包含风格基调、构图方式、色彩体系、细节层次、技术参数五个维度。</p>
+        </div>
+      </div>
+      <div class="method-step">
+        <div class="method-step-num">4</div>
+        <div class="method-step-content">
+          <h4>迭代优化流程</h4>
+          <p>从粗到精的5轮迭代：概念验证→风格校准→细节增强→变体探索→精选输出。每轮记录Prompt变化和效果对比。</p>
+        </div>
+      </div>
+    </div>
+
+    <h3>Prompt关键词体系示例</h3>
+    <div class="prompt-card">
+      <h4>机械山水 · 基础Prompt模板</h4>
+      <code>"赛博国风, 水墨山水画, 机械齿轮山脉, 霓虹灯管河流, 漂浮岛屿, 数据粒子云雾, 深蓝+金色调, 电影级光效, 8K超精细, 居中构图, 意境留白, --ar 16:9 --style raw --v 6"</code>
+    </div>
+    <div class="prompt-card">
+      <h4>赛博敦煌 · 基础Prompt模板</h4>
+      <code>"赛博国风, 敦煌飞天壁画风格, 光纤衣袂飘带, 霓虹光环, 机械莲花座, 全息曼陀罗, 紫色+金色调, 对称构图, 粒子光效, 8K, --ar 3:4 --style raw --v 6"</code>
+    </div>
+    <div class="prompt-card">
+      <h4>数据园林 · 基础Prompt模板</h4>
+      <code>"赛博国风, 苏州园林框景, 全息投影太湖石, 代码矩阵水面, 数据传送门, 霓虹竹影, 翡翠绿+紫色调, 圆形构图, 雾气光效, 8K, --ar 1:1 --style raw --v 6"</code>
+    </div>
+  </section>
+
+  <!-- 商业应用 -->
+  <section class="project-section project-section-alt">
+    <h2>商业应用场景</h2>
+    <p>「赛博国风」不仅是艺术实验，更具备多元化商业落地价值：</p>
+    <div class="app-grid">
+      <div class="app-card">
+        <h4>👕 品牌联名</h4>
+        <p>潮牌服饰印花系列，将赛博国风图案应用于T恤、卫衣、滑板等潮流单品</p>
+      </div>
+      <div class="app-card">
+        <h4>🏛️ 空间设计</h4>
+        <p>沉浸式展览/快闪店视觉，打造赛博国风主题空间，吸引Z世代打卡传播</p>
+      </div>
+      <div class="app-card">
+        <h4>💎 数字藏品</h4>
+        <p>NFT艺术系列，将赛博国风作品转化为数字藏品，探索Web3创意经济</p>
+      </div>
+    </div>
+    <p style="margin-top: 24px; color: var(--text-muted); font-size: 14px;">* 视觉素材将通过AI生成工具逐步产出，当前为策略框架阶段</p>
+    <div style="text-align: center; margin-top: 32px;">
+      <a href="project-03-product.html" class="btn-primary" style="background: transparent; border: 1px solid #b388ff; color: #b388ff;">查看完整商业方案：联名定价 · 展览设计 · 收入预估 →</a>
+    </div>
+  </section>
+
+  <!-- 我的角色 -->
+  <section class="project-section">
+    <h2>我的角色</h2>
+    <p>在本项目中，我作为AI视觉创作者，从概念到方法论的全程探索：</p>
+    <div class="tag-list">
+      <span class="tag-item">视觉审美：风格定义、美学体系构建</span>
+      <span class="tag-item">AI工具精通：Midjourney、Stable Diffusion</span>
+      <span class="tag-item">Prompt工程：关键词体系、迭代流程</span>
+      <span class="tag-item">商业转化：品牌联名、空间设计、数字藏品</span>
+    </div>
+  </section>
+
+  <section class="project-section" style="text-align: center; padding-top: 40px;">
+    <a href="index.html" class="btn-primary">返回作品集首页</a>
+    <br><br>
+    <a href="project-02-social.html" class="back-link">← 上一个项目：Social传播Campaign</a>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 AI Creative Portfolio. Built with AI as creative partner.</p>
+  </footer>
+  <button class="print-btn" onclick="window.print()" title="导出PDF">🖨</button>
+</body>
+</html>

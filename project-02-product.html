@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>#写给AI时代的一封信 · Campaign执行详情 | AI创意作品集</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .product-hero { padding: calc(var(--nav-height) + 80px) 24px 80px; background: linear-gradient(135deg, #16213e 0%, #0f3460 50%, #0a0a0f 100%); text-align: center; }
+    .product-hero-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 3px; color: #4fc3f7; text-transform: uppercase; margin-bottom: 16px; }
+    .product-hero-title { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 16px; }
+    .product-hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+    .product-section { padding: 80px 24px; max-width: 900px; margin: 0 auto; }
+    .product-section-alt { background: var(--bg-secondary); }
+    .product-section h2 { font-size: 28px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.5px; }
+    .product-section h3 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; color: #4fc3f7; }
+    .product-section p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+    .product-section ul { margin: 16px 0; padding-left: 20px; }
+    .product-section li { font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 8px; list-style: disc; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .tag-item { padding: 8px 16px; background: rgba(79,195,247,0.1); border: 1px solid rgba(79,195,247,0.2); border-radius: 6px; font-size: 13px; color: #4fc3f7; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 14px; transition: color var(--transition); }
+    .back-link:hover { color: var(--text-primary); }
+    .data-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin: 24px 0; }
+    .data-card { background: var(--bg-card); border: 1px solid rgba(79,195,247,0.15); border-radius: 8px; padding: 20px; text-align: center; }
+    .data-card .num { font-size: 32px; font-weight: 800; color: #4fc3f7; }
+    .data-card .label { font-size: 13px; color: var(--text-secondary); margin-top: 4px; }
+    .data-source { font-size: 12px; color: var(--text-muted); margin-top: 8px; text-align: right; }
+    .scenario-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 24px 0; }
+    .scenario-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+    .scenario-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 8px; color: var(--text-primary); }
+    .scenario-card p { font-size: 14px; margin-bottom: 0; }
+    .kpi-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+    .kpi-table th { background: var(--bg-card); padding: 12px 16px; text-align: left; font-weight: 600; color: var(--text-primary); border-bottom: 1px solid var(--border); }
+    .kpi-table td { padding: 12px 16px; color: var(--text-secondary); border-bottom: 1px solid var(--border); }
+    .kpi-table tr:last-child th, .kpi-table tr:last-child td { border-bottom: none; }
+    .highlight-stat { font-size: 36px; font-weight: 800; color: #4fc3f7; display: block; margin-bottom: 4px; }
+    @media (max-width: 768px) { .scenario-grid { grid-template-columns: 1fr; } .data-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+</head>
+<body>
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Portfolio</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">作品</a></li>
+        <li><a href="index.html#toolchain">AI工具链</a></li>
+        <li><a href="index.html#capability">能力图谱</a></li>
+        <li><a href="index.html#about">关于我</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="product-hero">
+    <a href="project-02-social.html" class="back-link" style="margin-bottom: 40px; display: inline-flex;">← 返回Campaign总览</a>
+    <p class="product-hero-label">Campaign执行详情</p>
+    <h1 class="product-hero-title">#写给AI时代的一封信</h1>
+    <p class="product-hero-subtitle">完整执行方案 · KPI预估 · 渠道策略 · 风险预案</p>
+  </section>
+
+  <!-- 市场调研数据 -->
+  <section class="product-section">
+    <h2>市场调研数据</h2>
+    <div class="data-grid">
+      <div class="data-card"><div class="num">85%</div><div class="label">视频内容占比</div></div>
+      <div class="data-card"><div class="num">67%</div><div class="label">短视频完播率</div></div>
+      <div class="data-card"><div class="num">3.2x</div><div class="label">互动内容参与度</div></div>
+      <div class="data-card"><div class="num">120亿</div><div class="label">日均互动量</div></div>
+    </div>
+    <div class="data-source">数据来源：YeehaiGlobal 2026社交媒体营销趋势报告、2025Q4短视频平台行业报告</div>
+
+    <h3>关键洞察</h3>
+    <ul>
+      <li><strong>圈层分化：</strong>小红书沉淀7000+细分文化圈层、B站2500+兴趣标签，情感向内容需要精准触碰圈层而非广撒网</li>
+      <li><strong>短视频主导：</strong>视频内容占比超85%，Reels和轮播图互动率比静态图片高44%，Campaign必须视频优先</li>
+      <li><strong>情感共鸣驱动：</strong>78.3%用户观看后24小时内完成首次互动，情感内容具有天然传播势能</li>
+      <li><strong>AI话题热度：</strong>AI相关话题月均阅读量超10亿，但需要情感锚点才能转化为有效传播</li>
+    </ul>
+  </section>
+
+  <!-- Campaign执行详情 -->
+  <section class="product-section product-section-alt">
+    <h2>执行详情</h2>
+    <img src="assets/images/project-02/campaign-timeline.jpg" alt="Campaign执行时间线" class="project-image" style="margin-bottom:24px;">
+    <img src="assets/images/project-02/campaign-dashboard.jpg" alt="Campaign数据看板" class="project-image" style="margin-bottom:24px; border-radius:12px; width:100%;">
+
+    <h3>KPI预估</h3>
+    <table class="kpi-table">
+      <tr><th>指标</th><th>目标值</th><th>乐观值</th></tr>
+      <tr><td>话题总曝光量</td><td>5亿+</td><td>8亿+</td></tr>
+      <tr><td>话题UGC参与量</td><td>50万+</td><td>100万+</td></tr>
+      <tr><td>KOL总互动量</td><td>500万+</td><td>800万+</td></tr>
+      <tr><td>H5参与人数</td><td>100万+</td><td>200万+</td></tr>
+      <tr><td>线下快闪人流量</td><td>3城×日均3000人</td><td>3城×日均5000人</td></tr>
+      <tr><td>信件出版册数</td><td>5,000册</td><td>10,000册</td></tr>
+    </table>
+
+    <h3>KOL矩阵策略</h3>
+    <ul>
+      <li><strong>情感类（3人）：</strong>粉丝100-500万，发布手写信故事，引发情感共鸣</li>
+      <li><strong>生活方式类（3人）：</strong>粉丝50-300万，展示手写信日常场景，扩大生活场景覆盖</li>
+      <li><strong>文化/文学类（2人）：</strong>粉丝30-200万，从文化角度探讨「AI时代的手写」话题</li>
+      <li><strong>科技类（2人）：</strong>粉丝100-500万，从AI技术角度反向切入，制造话题反差</li>
+    </ul>
+  </section>
+
+  <!-- 应用场景 -->
+  <section class="product-section">
+    <h2>应用场景</h2>
+    <div class="scenario-grid">
+      <div class="scenario-card">
+        <h4>📱 品牌Social传播</h4>
+        <p>适用于任何品牌的情感向social campaign，尤其是文具、生活方式、情感社交类品牌，可复用「AI×人性」话题方法论</p>
+      </div>
+      <div class="scenario-card">
+        <h4>🏫 校园/公益传播</h4>
+        <p>高校开学季/毕业季可复用「手写信」创意，公益组织可用于留守儿童/老人关怀项目，低预算高情感回报</p>
+      </div>
+      <div class="scenario-card">
+        <h4>🏬 线下体验激活</h4>
+        <p>快闪邮局模式可复制到商场/书店/咖啡馆，低门槛高参与度，适合购物中心引流和品牌体验活动</p>
+      </div>
+      <div class="scenario-card">
+        <h4>📖 IP内容衍生</h4>
+        <p>精选UGC信件可出版、可展览、可制作纪录片，形成长尾内容资产，持续为品牌积累情感价值</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 渠道策略 -->
+  <section class="product-section product-section-alt">
+    <h2>渠道策略</h2>
+    <table class="kpi-table">
+      <tr><th>平台</th><th>内容策略</th><th>预算占比</th></tr>
+      <tr><td>小红书</td><td>KOL手写信故事 + 手写信教程UGC + 话题页</td><td>30%</td></tr>
+      <tr><td>抖音</td><td>AI vs 手写信对比短片 + 挑战赛</td><td>35%</td></tr>
+      <tr><td>微博</td><td>话题热搜 + 明星/KOL联动 + 品牌官方内容</td><td>20%</td></tr>
+      <tr><td>B站</td><td>深度内容：AI概念短片 + 文化解读视频</td><td>10%</td></tr>
+      <tr><td>线下</td><td>3城快闪邮局 + 信件展览</td><td>5%</td></tr>
+    </table>
+  </section>
+
+  <!-- 风险预案 -->
+  <section class="product-section">
+    <h2>风险预案</h2>
+    <ul>
+      <li><strong>话题冷启动失败：</strong>预备3套备选话题切入角度，KOL内容分批次发布，根据前期数据动态调整</li>
+      <li><strong>AI话题引发争议：</strong>所有内容强调「AI是工具，人性是核心」，避免AI vs 人类的对立叙事</li>
+      <li><strong>UGC参与度不足：</strong>设置阶梯奖励（手写信套装/限量版邮票/出版机会），降低参与门槛</li>
+      <li><strong>线下执行风险：</strong>预备线上纯数字版替代方案，确保极端情况下Campaign可全线上执行</li>
+    </ul>
+  </section>
+
+  <div class="tag-list" style="max-width:900px; margin: 0 auto; justify-content: center;">
+    <span class="tag-item">KOL矩阵</span><span class="tag-item">话题营销</span><span class="tag-item">全渠道</span><span class="tag-item">UGC</span><span class="tag-item">情感营销</span>
+  </div>
+
+  <section class="product-section" style="text-align: center;">
+    <a href="project-02-social.html" class="btn-primary">← 返回Campaign总览</a>
+    <br><br>
+    <a href="index.html" class="back-link">← 返回作品集首页</a>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 AI Creative Portfolio. Built with AI as creative partner.</p>
+  </footer>
+  <button class="print-btn" onclick="window.print()" title="导出PDF">🖨</button>
+</body>
+</html>

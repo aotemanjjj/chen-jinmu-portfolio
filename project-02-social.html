@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>项目02 · #写给AI时代的一封信 | AI创意作品集</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .project-hero { padding: calc(var(--nav-height) + 80px) 24px 80px; background: linear-gradient(135deg, #16213e 0%, #0f3460 50%, #0a0a0f 100%); text-align: center; }
+    .project-hero-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 3px; color: #4fc3f7; text-transform: uppercase; margin-bottom: 16px; }
+    .project-hero-title { font-size: clamp(36px, 6vw, 56px); font-weight: 800; letter-spacing: -1.5px; margin-bottom: 16px; }
+    .project-hero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+    .project-section { padding: 80px 24px; max-width: 800px; margin: 0 auto; }
+    .project-section-alt { background: var(--bg-secondary); }
+    .project-section h2 { font-size: 28px; font-weight: 700; margin-bottom: 24px; letter-spacing: -0.5px; }
+    .project-section h3 { font-size: 20px; font-weight: 600; margin: 32px 0 12px; color: #4fc3f7; }
+    .project-section p { font-size: 16px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 16px; }
+    .project-section ul { margin: 16px 0; padding-left: 20px; }
+    .project-section li { font-size: 15px; color: var(--text-secondary); line-height: 1.8; margin-bottom: 8px; list-style: disc; }
+    .insight-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 24px 0; }
+    .insight-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px; }
+    .insight-card h4 { font-size: 14px; font-family: var(--font-mono); letter-spacing: 1px; color: #4fc3f7; margin-bottom: 12px; text-transform: uppercase; }
+    .insight-card p { font-size: 14px; margin-bottom: 0; }
+    .highlight-stat { font-size: 36px; font-weight: 800; color: #4fc3f7; display: block; margin-bottom: 4px; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .tag-item { padding: 8px 16px; background: rgba(79,195,247,0.1); border: 1px solid rgba(79,195,247,0.2); border-radius: 6px; font-size: 13px; color: #4fc3f7; }
+    .timeline { display: flex; flex-direction: column; gap: 24px; margin: 24px 0; }
+    .timeline-item { display: flex; gap: 20px; }
+    .timeline-week { flex-shrink: 0; width: 80px; padding: 8px 0; text-align: center; font-family: var(--font-mono); font-size: 13px; font-weight: 700; color: #4fc3f7; border-right: 2px solid rgba(79,195,247,0.3); }
+    .timeline-content h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; color: var(--text-primary); }
+    .timeline-content p { font-size: 14px; margin-bottom: 0; }
+    .content-matrix { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 24px 0; }
+    .content-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 18px; }
+    .content-item h4 { font-size: 14px; font-weight: 600; margin-bottom: 8px; }
+    .content-item p { font-size: 13px; margin-bottom: 0; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: var(--text-secondary); font-size: 14px; transition: color var(--transition); }
+    .back-link:hover { color: var(--text-primary); }
+    @media (max-width: 768px) { .insight-grid, .content-matrix { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="nav scrolled" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Portfolio</a>
+      <ul class="nav-links">
+        <li><a href="index.html#projects">作品</a></li>
+        <li><a href="index.html#toolchain">AI工具链</a></li>
+        <li><a href="index.html#capability">能力图谱</a></li>
+        <li><a href="index.html#about">关于我</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="project-hero">
+    <a href="index.html" class="back-link" style="margin-bottom: 40px; display: inline-flex;">← 返回作品集</a>
+    <p class="project-hero-label">项目 02 · Social传播Campaign</p>
+    <h1 class="project-hero-title">#写给AI时代的一封信</h1>
+    <p class="project-hero-subtitle">一个关于「在AI时代重新发现手写温度」的全渠道social传播Campaign</p>
+  </section>
+
+  <!-- 项目概述 -->
+  <section class="project-section">
+    <h2>项目概述</h2>
+    <img src="assets/images/project-02/campaign-kv.jpg" alt="#写给AI时代的一封信 主视觉" class="project-image" style="width:100%; border-radius:12px; margin-bottom:24px;">
+    <p>在AI能生成一切的时代，手写一封信反而成为最奢侈的表达。本Campaign以「#写给AI时代的一封信」为核心话题，策划全渠道social传播方案——用AI工具辅助创意执行，但传递的是人性的温度。</p>
+    <p>这是一个关于「技术」与「人性」的对话实验：我们用AI制作海报、生成视频、策划内容，但所有这一切，最终指向一个朴素的行动——坐下来，拿起笔，写一封信。</p>
+    <div class="tag-list">
+      <span class="tag-item">话题策划</span>
+      <span class="tag-item">Social洞察</span>
+      <span class="tag-item">内容矩阵</span>
+      <span class="tag-item">AI短片</span>
+      <span class="tag-item">全渠道传播</span>
+    </div>
+    <div style="text-align: center; margin-top: 32px;">
+      <a href="project-02-product.html" class="btn-primary" style="background: transparent; border: 1px solid #4fc3f7; color: #4fc3f7;">查看完整执行方案 →</a>
+    </div>
+  </section>
+
+  <!-- 市场调研数据 -->
+  <section class="project-section project-section-alt">
+    <h2>市场调研数据</h2>
+    <div class="insight-grid">
+      <div class="insight-card">
+        <h4>内容形态</h4>
+        <p><span class="highlight-stat">85%</span>社交媒体内容占比中视频已超85%，短视频完播率提升至67%</p>
+      </div>
+      <div class="insight-card">
+        <h4>互动形式</h4>
+        <p><span class="highlight-stat">3.2x</span>互动式内容参与度是传统帖文的3.2倍，投票/问答/挑战赛最受欢迎</p>
+      </div>
+      <div class="insight-card">
+        <h4>圈层分化</h4>
+        <p><span class="highlight-stat">7000+</span>小红书沉淀7000+细分文化圈层，精准触达取代广撒网</p>
+      </div>
+      <div class="insight-card">
+        <h4>情感互动</h4>
+        <p><span class="highlight-stat">78.3%</span>用户观看视频后24小时内完成首次互动，情感内容传播势能最强</p>
+      </div>
+    </div>
+    <p style="font-size: 12px; color: var(--text-muted); text-align: right; margin-top: 12px;">数据来源：YeehaiGlobal 2026社交媒体营销趋势报告、36氪《2026 AI重构社交媒体营销趋势》、2025Q4短视频行业报告</p>
+  </section>
+
+  <!-- 策略洞察 -->
+  <section class="project-section project-section-alt">
+    <h2>策略洞察</h2>
+    <h3>Social信号</h3>
+    <div class="insight-grid">
+      <div class="insight-card">
+        <h4>话题热度</h4>
+        <p><span class="highlight-stat">215%</span>「手写」相关话题在小红书年搜索量增长</p>
+      </div>
+      <div class="insight-card">
+        <h4>情感共鸣</h4>
+        <p><span class="highlight-stat">78%</span>Z世代表示「收到手写信会感到特别」</p>
+      </div>
+      <div class="insight-card">
+        <h4>AI话题流量</h4>
+        <p><span class="highlight-stat">10亿+</span>AI相关话题月均阅读量，天然自带流量</p>
+      </div>
+      <div class="insight-card">
+        <h4>UGC潜力</h4>
+        <p><span class="highlight-stat">83%</span>用户愿意参与情感向UGC话题活动</p>
+      </div>
+    </div>
+    <h3>传播策略</h3>
+    <ul>
+      <li><strong>核心矛盾：</strong>AI时代 × 手写温度 → 制造话题张力，激发讨论</li>
+      <li><strong>情感锚点：</strong>每个人都有一封「没寄出的信」—— 唤起集体情感记忆</li>
+      <li><strong>传播杠杆：</strong>UGC情感叙事 + KOL真实故事 + AI技术反差</li>
+      <li><strong>差异化：</strong>不是「抵制AI」而是「在AI时代重新发现人性」—— 正向叙事，避免对立</li>
+    </ul>
+  </section>
+
+  <!-- 创意概念 -->
+  <section class="project-section">
+    <h2>创意概念</h2>
+    <h3>Big Idea</h3>
+    <p style="font-size: 24px; font-weight: 700; color: var(--text-primary); margin: 24px 0;">「在AI时代，写一封只有人能读懂的信」</p>
+    <p>AI可以生成完美的文字，但无法复制你写字时颤抖的手、晕开的墨迹、和信封上橡皮擦过的痕迹。这些「不完美」，才是人类最动人的部分。</p>
+
+    <img src="assets/images/project-02/social-poster.jpg" alt="Campaign系列海报" class="project-image" style="width:100%; border-radius:12px; margin: 24px 0;">
+
+    <h3>内容矩阵</h3>
+    <div class="content-matrix">
+      <div class="content-item">
+        <h4>🔮 预热期 · 悬念</h4>
+        <p>AI生成「完美信件」vs 真实手写信的对比视频，抛出话题：「AI写的信，你感动吗？」</p>
+      </div>
+      <div class="content-item">
+        <h4>💥 爆发期 · 共振</h4>
+        <p>KOL发布自己的手写信故事，带话题 #写给AI时代的一封信，引发情感共鸣</p>
+      </div>
+      <div class="content-item">
+        <h4>🎨 互动期 · 参与</h4>
+        <p>上线「手写信生成器」互动H5（AI辅助生成手写风格字体），用户可生成专属手写信图片</p>
+      </div>
+      <div class="content-item">
+        <h4>📖 沉淀期 · 出版</h4>
+        <p>精选UGC信件集结出版《AI时代的人类笔迹》，完成从线上话题到线下实体的闭环</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 传播节奏 -->
+  <section class="project-section project-section-alt">
+    <h2>传播节奏</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-week">Week 1<br>预热</div>
+        <div class="timeline-content">
+          <h4>悬念视频 + 话题预告</h4>
+          <p>发布AI vs 手写信对比短片，微博/小红书/抖音同步投放。KOL预告「我有一封信，藏了三年」。话题页搭建，引导用户预约参与。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Week 2<br>爆发</div>
+        <div class="timeline-content">
+          <h4>KOL矩阵发布 + 话题冲榜</h4>
+          <p>10位KOL同日发布手写信故事，覆盖情感/生活方式/文化/科技圈层。话题 #写给AI时代的一封信 冲击热搜。品牌官方发布AI概念短片《最后一封手写信》。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Week 3<br>互动</div>
+        <div class="timeline-content">
+          <h4>UGC征集 + 线上活动</h4>
+          <p>「手写信生成器」H5上线，用户生成专属手写信图片并分享。优质UGC二次传播，评选「最动人的一封信」。线下快闪邮局落地3城。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-week">Week 4<br>沉淀</div>
+        <div class="timeline-content">
+          <h4>精选出版 + 品牌纪录片</h4>
+          <p>精选100封UGC信件出版《AI时代的人类笔迹》。发布品牌纪录片《那些AI写不出的字》。Campaign复盘，数据总结。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 应用场景 -->
+  <section class="project-section">
+    <h2>应用场景</h2>
+    <div class="insight-grid">
+      <div class="insight-card">
+        <h4>品牌Social传播</h4>
+        <p>适用于任何品牌的情感向social campaign，文具、生活方式、情感社交类品牌可复用「AI×人性」话题方法论</p>
+      </div>
+      <div class="insight-card">
+        <h4>校园/公益传播</h4>
+        <p>高校开学季/毕业季可复用「手写信」创意，公益组织可用于留守儿童/老人关怀项目，低预算高情感回报</p>
+      </div>
+      <div class="insight-card">
+        <h4>线下体验激活</h4>
+        <p>快闪邮局模式可复制到商场/书店/咖啡馆，低门槛高参与度，适合购物中心引流和品牌体验活动</p>
+      </div>
+      <div class="insight-card">
+        <h4>IP内容衍生</h4>
+        <p>精选UGC信件可出版、可展览、可制作纪录片，形成长尾内容资产，持续为品牌积累情感价值</p>
+      </div>
+    </div>
+    <div style="text-align: center; margin-top: 32px;">
+      <a href="project-02-product.html" class="btn-primary" style="background: transparent; border: 1px solid #4fc3f7; color: #4fc3f7;">查看完整执行方案：KPI · 渠道策略 · 风险预案 →</a>
+    </div>
+  </section>
+
+  <!-- AI执行 -->
+  <section class="project-section">
+    <h2>AI执行过程</h2>
+    <ul>
+      <li><strong>ChatGPT：</strong>话题策略推导、30+条不同平台适配文案（微博/小红书/抖音/朋友圈）、KOL合作brief撰写、UGC征集话术</li>
+      <li><strong>Midjourney：</strong>系列social海报（手写信×AI视觉风格混搭）、话题主视觉KV、H5页面视觉素材</li>
+      <li><strong>Runway：</strong>AI生成「手写信」概念短片《最后一封手写信》，混合实拍与AI视觉</li>
+      <li><strong>数据分析：</strong>AI辅助话题热度预测、传播效果预估、KOL匹配度分析</li>
+    </ul>
+    <p style="margin-top: 16px; color: var(--text-muted); font-size: 14px;">* 视觉素材将通过AI生成工具逐步产出，当前为策略框架阶段</p>
+
+    <div style="text-align: center; margin-top: 32px;">
+      <a href="project-02-product.html" class="btn-primary" style="background: transparent; border: 1px solid #4fc3f7; color: #4fc3f7;">查看执行详情：KPI · 渠道策略 · 风险预案 →</a>
+    </div>
+  </section>
+
+  <!-- 我的角色 -->
+  <section class="project-section project-section-alt">
+    <h2>我的角色</h2>
+    <p>在本项目中，我作为Campaign策划人，从Social洞察到全渠道执行全程主导：</p>
+    <div class="tag-list">
+      <span class="tag-item">Social洞察：话题挖掘、受众分析、传播策略</span>
+      <span class="tag-item">创意策划：Big Idea、内容矩阵、传播节奏</span>
+      <span class="tag-item">AI内容生产：文案、海报、短片</span>
+      <span class="tag-item">全渠道执行：微博、小红书、抖音、线下</span>
+    </div>
+  </section>
+
+  <section class="project-section" style="text-align: center; padding-top: 40px;">
+    <a href="project-03-visual.html" class="btn-primary">下一个项目：AI视觉创意实验 →</a>
+    <br><br>
+    <a href="index.html" class="back-link">← 返回作品集首页</a>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2026 AI Creative Portfolio. Built with AI as creative partner.</p>
+  </footer>
+  <button class="print-btn" onclick="window.print()" title="导出PDF">🖨</button>
+</body>
+</html>
